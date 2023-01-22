@@ -13,11 +13,11 @@
                   </svg>
                 </span>
                 <input class="input-group-text form-control" list="datalistOptions" onfocus="this.value=''" onchange="this.blur();" id="cariLocation" placeholder="Search Parking Place...">
-                <datalist id="datalistOptions">
+                {{-- <datalist id="datalistOptions">
                     @foreach (App\Models\ParkingLocation::pluck('name') as $each)
                     <option value="{{$each}}">
                     @endforeach
-                </datalist>
+                </datalist> --}}
             </div>
           </form>
           @else

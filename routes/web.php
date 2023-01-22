@@ -1,11 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ParkingHistoryController;
-use App\Http\Controllers\ParkingTransactionController;
 use App\Http\Controllers\RegisterController;
-use App\Models\ParkingTransaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,15 +26,7 @@ Route::group(['middleware' => ['auth:web']], function(){
 
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-    Route::get('/checkin', [ParkingTransactionController::class, 'checkin'])->name('checkin.index');
-    Route::post('/checkin', [ParkingTransactionController::class, 'checkin_post'])->name('checkin.store');
-    Route::get('/checkout', [ParkingTransactionController::class, 'checkout'])->name('checkout.index');
-    Route::get('/history', [ParkingHistoryController::class, 'history'])->name('history.index');
-    Route::get('/history/{code}/detail', [ParkingHistoryController::class, 'detail'])->name('history.detail');
-
     Route::get('/auth/logout', [LoginController::class, 'logout'])->name('logout.index');
-
 });
 
 
-// Route::get('/', [ParkingTransactionController::class, 'checkin'])->name('guest.checkin.index');
