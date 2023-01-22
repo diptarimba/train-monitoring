@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->longText('content');
             $table->timestamps();
+
+            $table->foreign('wagon_id')->references('id')->on('wagons');
         });
     }
 

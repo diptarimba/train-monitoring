@@ -19,6 +19,8 @@ return new class extends Migration
             $table->bigInteger('discharge');
             $table->bigInteger('volume');
             $table->timestamps();
+
+            $table->foreign('wagon_id')->references('id')->on('wagons');
         });
     }
 
