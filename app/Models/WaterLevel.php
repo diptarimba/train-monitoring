@@ -13,4 +13,9 @@ class WaterLevel extends Model
         'wagon_id',
         'discharge'
     ];
+
+    public function wagon()
+    {
+        return $this->belongsTo(Wagon::class, 'wagon_id');
+    }
 }

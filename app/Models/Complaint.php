@@ -14,4 +14,9 @@ class Complaint extends Model
         'name',
         'content'
     ];
+
+    public function wagon()
+    {
+        return $this->belongsTo(Wagon::class, 'wagon_id');
+    }
 }

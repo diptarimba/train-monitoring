@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FlowMeter extends Model
+class WaterFlowMeter extends Model
 {
     use HasFactory;
 
@@ -14,4 +14,9 @@ class FlowMeter extends Model
         'discharge',
         'volume'
     ];
+
+    public function wagon()
+    {
+        return $this->belongsTo(Wagon::class, 'wagon_id');
+    }
 }
