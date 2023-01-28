@@ -10,6 +10,9 @@
 <!-- Volt CSS -->
 <link type="text/css" href="{{asset('css/volt.css')}}" rel="stylesheet">
 
+<!-- Datatables Bootstrap5 CSS -->
+<link type="text/css" href="{{asset('css/dataTables.bootstrap5.min.css')}}" rel="stylesheet">
+
 
 @yield('header-custom')
 @endsection
@@ -111,6 +114,30 @@
 <!-- FontAwesome -->
 <script src="{{asset('assets/js/fontawesome.all.min.js')}}"></script>
 <script src="{{asset('assets/js/fontawesome.regular.min.js')}}"></script>
+
+<script>
+    function delete_data(identify){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                    $(`#${identify}`).submit();
+                }
+            }
+        )
+    }
+</script>
 
 @yield('footer-custom')
 @endsection
