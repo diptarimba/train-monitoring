@@ -70,11 +70,13 @@ class TrainController extends Controller
     {
         $editBtn = route('train.edit', $data->id);
         $deleteBtn = route('train.destroy', $data->id);
+        $wagonUrl = route('train.wagon.index', $data->id);
         $ident = Str::random(10);
 
         return
         '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
         . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
+        . '<a class="btn btn-info btn-sm mx-1 my-1" href="'.$wagonUrl.'">Wagon List</a>'
         // . '<input form="form'.$ident .'" type="submit" value="Delete" class="mx-1 my-1 btn btn-sm btn-danger delete-btn">
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />
