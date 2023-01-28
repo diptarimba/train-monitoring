@@ -1,4 +1,3 @@
-<a href="{{url()->previous()}}" class="btn btn-outline-primary mx-1 my-1">Back</a>
 <div class="row">
     <div class="col-12">
         <div class="card border-0 shadow">

@@ -27,6 +27,7 @@
             <x-sidebar.HeaderLogo title="{{ env('APP_NAME') }}" href="#" src="{{asset('assets/img/brand/light.svg')}}" />
             <x-sidebar.sparator />
             <x-sidebar.Single icons="fa-solid fa-house-user" title="Home" href="{{route('home.index')}}" />
+            <x-sidebar.Single icons="fa-solid fa-right-to-bracket fa-fw" title="Train" href="{{route('train.index')}}" />
         </ul>
     </div>
 </nav>
