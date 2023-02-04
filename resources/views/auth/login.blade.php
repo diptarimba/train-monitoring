@@ -68,9 +68,9 @@
                                                 Remember me
                                             </label>
                                         </div>
-                                        <div>
+                                        {{-- <div>
                                             <a href="./forgot-password.html" class="small text-right">Lost password?</a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="d-grid">
@@ -94,12 +94,13 @@
                                 <i class="fa-brands fa-github fa-fw"></i>
                             </a>
                         </div> --}}
-                            <div class="d-flex justify-content-center align-items-center mt-4">
+                            <!-- Register Page -->
+                            {{-- <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Not registered?
                                     <a href="{{ route('register.index') }}" class="fw-bold">Create account</a>
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
