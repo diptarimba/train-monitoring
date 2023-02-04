@@ -28,6 +28,7 @@
             <x-sidebar.sparator />
             <x-sidebar.Single icons="fa-solid fa-house-user" title="Home" href="{{route('home.index')}}" currentsite="{{Request()->is('/') ? true : false}}"/>
             <x-sidebar.Single icons="fa-solid fa-right-to-bracket fa-fw" title="Train" href="{{route('train.index')}}" currentsite="{{Request()->is('train', 'train/*') ? true : false}}" />
+            <x-sidebar.Single icons="fa-solid fa-user fa-fw" title="User" href="{{route('user.index')}}" currentsite="{{Request()->is('user', 'user/*') ? true : false}}" />
         </ul>
     </div>
 </nav>
