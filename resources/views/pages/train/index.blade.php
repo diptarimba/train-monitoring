@@ -23,6 +23,7 @@
                 <thead>
                     <th>No</th>
                     <th>Name</th>
+                    <th>Water Level (L)</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
             {data: 'DT_RowIndex', name: 'DT_RowIndex', sortable: false, orderable: false,
                 searchable: false},
             {data: 'name', name: 'name'},
+            {data: 'volume', name: 'volume'},
             {
                 data: 'action',
                 name: 'action',
