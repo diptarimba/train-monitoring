@@ -17,7 +17,7 @@
                 action="{{ request()->routeIs('user.create') ? route('user.store') : route('user.update', @$user->id) }}"
                 method="post" enctype="multipart/form-data">
                 @csrf
-                @if (request()->routeIs('user.edit'))
+                @if (request()->routeIs('user.edit', 'me.index'))
                 <div class="col-6 mx-auto">
                     <x-forms.view-image label="Avatar" src="{{ asset($user->avatar) }}" />
                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TrainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WagonController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Complaint;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,7 @@ Route::post('/auth/register', [RegisterController::class, 'store'])->name('regis
 Route::group(['middleware' => ['auth:web']], function(){
 
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
+    Route::get('/me', [ProfileController::class, 'edit'])->name('me.index');
     Route::resource('user', UserController::class);
     Route::resource('/train', TrainController::class);
     Route::resource('train.wagon', WagonController::class);
