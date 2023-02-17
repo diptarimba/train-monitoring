@@ -13,7 +13,8 @@ class HomeController extends Controller
     {
         $train = Train::count();
         $wagon = Wagon::count();
+        $water = Train::sum('volume');
 
-        return view('pages.home.index', compact('wagon', 'train'));
+        return view('pages.home.index', compact('wagon', 'train', 'water'));
     }
 }

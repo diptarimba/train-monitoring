@@ -9,8 +9,9 @@
 @section('content')
 <div class="row mt-3">
     <span class="slot-name h3"><strong>Statistic</strong></span>
-    <x-cards.home text="Train Total" value="{{$train}}" icon="fa-solid fa-square-parking" />
-    <x-cards.home text="Wagon Total" value="{{$wagon}}" icon="fa-solid fa-location-dot" />
+    <x-cards.home text="Train Total" value="{{$train}}" unit="Unit" icon="fa-solid fa-train" />
+    <x-cards.home text="Wagon Total" value="{{$wagon}}" unit="Unit" icon="fa-solid fa-tram" />
+    <x-cards.home text="Water Total" value="{{$water}}" unit="Liter" icon="fa-solid fa-water" />
 </div>
 @endsection
 
