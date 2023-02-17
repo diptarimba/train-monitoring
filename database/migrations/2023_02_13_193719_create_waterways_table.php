@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('water_flow_meters', function (Blueprint $table) {
+        Schema::create('waterways', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('wagon_id');
-            $table->bigInteger('discharge');
-            $table->bigInteger('volume');
+            $table->string('name');
             $table->timestamps();
 
-            $table->foreign('wagon_id')->references('id')->on('wagons');
+            $table->foreign('wagon_id')->references('id')->on('wagons')->onDelete('cascade');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flow_meters');
+        Schema::dropIfExists('waterways');
     }
 };

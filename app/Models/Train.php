@@ -10,7 +10,8 @@ class Train extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'volume'
     ];
 
     public function wagon()
