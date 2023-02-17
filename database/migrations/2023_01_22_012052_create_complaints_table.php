@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('wagon_id');
+            $table->unsignedBigInteger('train_id');
             $table->string('name');
             $table->longText('content');
             $table->timestamps();
 
-            $table->foreign('wagon_id')->references('id')->on('wagons');
+            $table->foreign('train_id')->references('id')->on('trains');
         });
     }
 

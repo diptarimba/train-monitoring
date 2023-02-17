@@ -10,13 +10,13 @@ class Complaint extends Model
     use HasFactory;
 
     protected $fillable = [
-        'wagon_id',
+        'train_id',
         'name',
         'content'
     ];
 
     public function wagon()
     {
-        return $this->belongsTo(Wagon::class, 'wagon_id');
+        return $this->belongsTo(Wagon::class, 'train_id');
     }
 }

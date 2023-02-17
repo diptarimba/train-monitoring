@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Complaint;
 use App\Models\Train;
 use App\Models\Wagon;
 use App\Models\Waterways;
@@ -38,6 +39,8 @@ class TrainSeeder extends Seeder
                     ]);
                 }
             });
+
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
@@ -60,6 +63,8 @@ class TrainSeeder extends Seeder
                     ]);
                 }
             });
+
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
@@ -83,6 +88,8 @@ class TrainSeeder extends Seeder
                     ]);
                 }
             });
+
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
         });
     }
 }
