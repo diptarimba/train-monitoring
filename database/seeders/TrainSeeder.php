@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use App\Models\Complaint;
 use App\Models\Train;
 use App\Models\Wagon;
+use App\Models\WaterHistory;
 use App\Models\Waterways;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
@@ -21,75 +21,105 @@ class TrainSeeder extends Seeder
     {
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Argo Sindoro']
-        ))->create()->map(function($each){
+        ))->create()->map(function($train){
             Wagon::factory()->count(10)->state(new Sequence(
-                ['name' => 'Eksekutif 1', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 2', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 3', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 4', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 5', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 6', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 7', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 8', 'train_id' => $each->id]
-            ))->create()->map(function($each){
+                ['name' => 'Eksekutif 1', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 2', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 3', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 4', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 5', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 6', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 7', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 8', 'train_id' => $train->id]
+            ))->create()->map(function($each) use ($train){
                 for($x = 1; $x < 3; $x++){
-                    Waterways::create([
+                    $waterWays = Waterways::create([
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
+
+                    for($y=0; $y<rand(1,5); $y++){
+                        $volume = rand(1,7) / 10;
+                        $train->decrement('volume', $volume);
+
+                        WaterHistory::create([
+                            'water_way_id' => $waterWays->id,
+                            'volume' => rand(1,9) / 10
+                        ]);
+                    }
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Brawijaya']
-        ))->create()->map(function($each){
+        ))->create()->map(function($train){
             Wagon::factory()->count(10)->state(new Sequence(
-                ['name' => 'Eksekutif 1', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 2', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 3', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 4', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 5', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 6', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 7', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 8', 'train_id' => $each->id]
-            ))->create()->map(function($each){
+                ['name' => 'Eksekutif 1', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 2', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 3', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 4', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 5', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 6', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 7', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 8', 'train_id' => $train->id]
+            ))->create()->map(function($each) use ($train){
                 for($x = 1; $x < 3; $x++){
-                    Waterways::create([
+                    $waterWays = Waterways::create([
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
+
+                    for($y=0; $y<rand(1,5); $y++){
+                        $volume = rand(1,7) / 10;
+                        $train->decrement('volume', $volume);
+
+                        WaterHistory::create([
+                            'water_way_id' => $waterWays->id,
+                            'volume' => $volume
+                        ]);
+                    }
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Sembrani']
-        ))->create()->map(function($each){
+        ))->create()->map(function($train){
             Wagon::factory()->count(10)->state(new Sequence(
-                ['name' => 'Eksekutif 1', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 2', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 3', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 4', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 5', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 6', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 7', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 8', 'train_id' => $each->id],
-                ['name' => 'Eksekutif 9', 'train_id' => $each->id]
-            ))->create()->map(function($each){
+                ['name' => 'Eksekutif 1', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 2', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 3', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 4', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 5', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 6', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 7', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 8', 'train_id' => $train->id],
+                ['name' => 'Eksekutif 9', 'train_id' => $train->id]
+            ))->create()->map(function($each) use ($train){
                 for($x = 1; $x < 3; $x++){
-                    Waterways::create([
+                    $waterWays = Waterways::create([
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
+
+                    for($y=0; $y<rand(1,5); $y++){
+                        $volume = rand(1,7) / 10;
+                        $train->decrement('volume', $volume);
+
+                        WaterHistory::create([
+                            'water_way_id' => $waterWays->id,
+                            'volume' => $volume
+                        ]);
+                    }
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $each->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
         });
     }
 }

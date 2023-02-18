@@ -17,4 +17,5 @@ class WaterHistory extends Model
     public function water_way(){
         return $this->belongsTo(Waterways::class, 'water_way_id');
     }
+
 }

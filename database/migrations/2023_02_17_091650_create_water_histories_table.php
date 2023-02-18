@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('water_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('water_way_id');
-            $table->bigInteger('volume');
+            $table->float('volume');
             $table->timestamps();
         });
     }

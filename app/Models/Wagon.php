@@ -19,9 +19,9 @@ class Wagon extends Model
         return $this->belongsTo(Train::class, 'train_id');
     }
 
-    public function water_flow_meter()
+    public function water_way()
     {
-        return $this->hasMany(WaterFlowMeter::class);
+        return $this->hasMany(Waterways::class);
     }
 
     public function water_level()

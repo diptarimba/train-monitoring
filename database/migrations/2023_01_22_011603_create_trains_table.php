@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('trains', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('volume');
+            $table->float('volume');
             $table->timestamps();
         });
     }
