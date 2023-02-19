@@ -100,4 +100,18 @@ class WaterHistoryController extends Controller
     {
         //
     }
+
+    public function outflow(Request $request)
+    {
+        $request->validate([
+            'water_way_id' => 'required|exists:waterways,id',
+            'volume' => 'required'
+        ]);
+
+        $waterHistory = WaterHistory::create($request->all());
+
+        return response()->json([
+            'message' => 'Outflow Received'
+        ], 200);
+    }
 }
