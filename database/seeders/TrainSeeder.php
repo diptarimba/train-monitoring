@@ -22,7 +22,7 @@ class TrainSeeder extends Seeder
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Argo Sindoro']
         ))->create()->map(function($train){
-            Wagon::factory()->count(10)->state(new Sequence(
+            Wagon::factory()->count(8)->state(new Sequence(
                 ['name' => 'Eksekutif 1', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 2', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 3', 'train_id' => $train->id],
@@ -56,7 +56,7 @@ class TrainSeeder extends Seeder
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Brawijaya']
         ))->create()->map(function($train){
-            Wagon::factory()->count(10)->state(new Sequence(
+            Wagon::factory()->count(8)->state(new Sequence(
                 ['name' => 'Eksekutif 1', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 2', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 3', 'train_id' => $train->id],
@@ -90,7 +90,7 @@ class TrainSeeder extends Seeder
         Train::factory()->count(1)->state(new Sequence(
             ['name' => 'Sembrani']
         ))->create()->map(function($train){
-            Wagon::factory()->count(10)->state(new Sequence(
+            Wagon::factory()->count(9)->state(new Sequence(
                 ['name' => 'Eksekutif 1', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 2', 'train_id' => $train->id],
                 ['name' => 'Eksekutif 3', 'train_id' => $train->id],
