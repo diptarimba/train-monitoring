@@ -48,7 +48,17 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'train_id' => 'required',
+            'name' => 'required',
+            'content' => 'required'
+        ]);
+
+        $complaint = Complaint::create($request->all());
+
+        return response()->json([
+            'message' => 'Complaint Received'
+        ], 200);
     }
 
     /**
