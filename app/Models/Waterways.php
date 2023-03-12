@@ -23,4 +23,9 @@ class Waterways extends Model
     {
         return $this->hasMany(WaterHistory::class);
     }
+
+    public function outflow()
+    {
+        return $this->hasMany(Outflow::class);
+    }
 }

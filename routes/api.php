@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ComplaintController;
-use App\Http\Controllers\Admin\WaterHistoryController;
+use App\Http\Controllers\Api\HistoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/outflow', [WaterHistoryController::class, 'outflow']);
+Route::post('/outflow', [HistoryController::class, 'outflow']);
 Route::post('/complaint', [ComplaintController::class, 'store']);

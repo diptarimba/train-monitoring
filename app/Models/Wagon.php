@@ -33,4 +33,9 @@ class Wagon extends Model
     {
         return $this->hasMany(Complaint::class);
     }
+
+    public function outflow()
+    {
+        return $this->hasMany(Outflow::class);
+    }
 }
