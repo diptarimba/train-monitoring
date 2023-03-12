@@ -81,7 +81,7 @@ class WagonController extends Controller
         '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
         . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
         . '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
-        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow</a>'
+        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow History</a>'
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />
         <input type="hidden" name="_method" value="DELETE">
