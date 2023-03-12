@@ -75,13 +75,15 @@ class WagonController extends Controller
         $deleteBtn = route('train.wagon.destroy', ['train' => $data->train_id, 'wagon' => $data->id]);
         $waterWayBtn = route('train.wagon.ways.index',['train' => $data->train_id, 'wagon' => $data->id]);
         $outflowBtn = route('train.wagon.outflow.index',['train' => $data->train_id, 'wagon' => $data->id]);
+        $waterLevelBtn = route('train.wagon.water.index',['train' => $data->train_id, 'wagon' => $data->id]);
         $ident = Str::random(10);
 
         return
         '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
         . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
         . '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
-        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow History</a>'
+        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow</a>'
+        . '<a href="'.$waterLevelBtn.'" class="btn mx-1 my-1 btn-sm btn-warning">Water Level</a>'
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />
         <input type="hidden" name="_method" value="DELETE">
