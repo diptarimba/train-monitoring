@@ -111,6 +111,6 @@ class ComplaintController extends Controller
         $editBtn = route('complaint.edit', $data->id);
 
         return
-        '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>';
+        '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">View</a>';
     }
 }
