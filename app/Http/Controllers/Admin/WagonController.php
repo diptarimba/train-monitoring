@@ -73,10 +73,12 @@ class WagonController extends Controller
     {
         $editBtn = route('train.wagon.edit', ['train' => $data->train_id, 'wagon' => $data->id]);
         $deleteBtn = route('train.wagon.destroy', ['train' => $data->train_id, 'wagon' => $data->id]);
+        $waterWayBtn = route('train.wagon.ways.index',['train' => $data->train_id, 'wagon' => $data->id]);
         $ident = Str::random(10);
 
         return
         '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
+        . '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
         . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />

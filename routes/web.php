@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TrainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WagonController;
 use App\Http\Controllers\Admin\WaterHistoryController;
+use App\Http\Controllers\Admin\WaterWayController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['auth:web']], function(){
     Route::resource('user', UserController::class);
     Route::resource('/train', TrainController::class);
     Route::resource('train.wagon', WagonController::class);
+    Route::resource('train.wagon.ways', WaterWayController::class);
     Route::resource('train.water', WaterHistoryController::class);
     Route::resource('complaint', ComplaintController::class);
 
