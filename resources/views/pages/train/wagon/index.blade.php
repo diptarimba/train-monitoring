@@ -14,7 +14,7 @@
 />
 <x-cards.fullpage>
     <x-slot name="header">
-        <x-cards.header title="Wagon"/>
+        <x-cards.header title="Wagon of {{$train->name}}"/>
         <a class="btn btn-primary" href="{{route('train.wagon.create', $train->id)}}">Tambah Data</a>
     </x-slot>
     <x-slot name="body">
