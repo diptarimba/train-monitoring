@@ -38,13 +38,6 @@
 
     @section('footer-custom')
         <script>
-            // mengambil URL saat ini
-            let currentUrl = window.location.search;
-
-            // membuat objek URLSearchParams dari URL saat ini
-            let searchParams = new URLSearchParams(currentUrl);
-        </script>
-        <script>
             $(document).ready(() => {
                 var table = $('.datatables-target-exec').DataTable({
                     processing: true,
@@ -71,31 +64,13 @@
                         },
                         {
                             data: 'created_at',
-                            name: 'created_at'
+                            name: 'created_at',
+                            render: function(data, type, full, meta) {
+                                return moment(data).format('DD-MM-YYYY HH:mm:ss');
+                            }
                         },
                     ]
                 });
             })
-        </script>
-
-        <script>
-            $(function() {
-                $('input[name="daterange"]').daterangepicker({
-                        opens: 'left', // position of calendar popup
-                        startDate: searchParams.get('start_date') ?? moment().startOf('month'), // initial start date
-                        endDate: searchParams.get('end_date') ?? moment().endOf('month'), // initial end date
-                        locale: {
-                            format: 'YYYY-MM-DD' // date format
-                        }
-                    },
-                    function(start, end, label) {
-                        // menambahkan query string baru pada objek URLSearchParams
-                        searchParams.set('start_date', start.format('YYYY-MM-DD'));
-                        searchParams.set('end_date', end.format('YYYY-MM-DD'));
-
-                        // melakukan redirect ke URL yang baru
-                        window.location.search = searchParams.toString();
-                    });
-            });
         </script>
     @endsection
