@@ -13,6 +13,10 @@
 <!-- Datatables Bootstrap5 CSS -->
 <link type="text/css" href="{{asset('css/dataTables.bootstrap5.min.css')}}" rel="stylesheet">
 
+<!-- DatePicker BS5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.css" rel="stylesheet">
+
 
 @yield('header-custom')
 @endsection
@@ -87,17 +91,14 @@
 <script src="{{asset('vendor/chartist/dist/chartist.min.js')}}"></script>
 <script src="{{asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
 
-<!-- Datepicker -->
-<script src="{{asset('vendor/vanillajs-datepicker/dist/js/datepicker.min.js')}}"></script>
-
 <!-- Sweet Alerts 2 -->
 <script src="{{asset('vendor/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
 
 <!-- Moment JS -->
 <script src="{{asset('assets/js/moment.min.js')}}"></script>
 
-<!-- Vanilla JS Datepicker -->
-<script src="{{asset('vendor/vanillajs-datepicker/dist/js/datepicker.min.js')}}"></script>
+<!-- Datepicker -->
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.min.js"></script>
 
 <!-- Notyf -->
 <script src="{{asset('vendor/notyf/notyf.min.js')}}"></script>
