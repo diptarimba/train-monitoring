@@ -116,6 +116,10 @@
 <script src="{{asset('assets/js/fontawesome.all.min.js')}}"></script>
 <script src="{{asset('assets/js/fontawesome.regular.min.js')}}"></script>
 
+<!-- Datatables -->
+<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.bootstrap5.min.js') }}"></script>
+
 <script>
     function delete_data(identify){
         Swal.fire({
