@@ -22,7 +22,7 @@ class WaterLevelController extends Controller
         {
             $waterLevel = $wagon->water_level()
             ->when($request->start_date && $request->end_date, function($query) use ($request){
-                return $query->whereBetween('created_at', [$request->start_date, $request->end_date]);
+                return $query->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date);
             })
             ->select();
             return datatables()->of($waterLevel)
