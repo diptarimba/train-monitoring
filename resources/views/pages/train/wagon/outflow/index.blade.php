@@ -12,7 +12,12 @@
     <x-back route="{{ route('train.wagon.index', ['train' => $train->id]) }}" />
     <x-cards.fullpage>
         <x-slot name="header">
-            <x-cards.header title="Outflow History of {{ $wagon->name }} on {{ $train->name }}" />
+            <div class="flex-grow-1">
+                <x-cards.header title="Outflow History of {{ $wagon->name }} on {{ $train->name }}" />
+            </div>
+            <div class="flex-grow-2">
+                <input type="text" class="form-control" name="daterange" value="01/01/2023 - 01/31/2023" />
+            </div>
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -39,7 +44,13 @@
                     processing: true,
                     serverSide: true,
                     searching: true,
-                    ajax: "{{ route('train.wagon.outflow.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}",
+                    ajax: {
+                        url: "{{ route('train.wagon.outflow.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}",
+                        data: function(d){
+                            d.start_date = searchParams.get('start_date') ?? null
+                            d.end_date = searchParams.get('end_date') ?? null
+                        }
+                    },
                     columns: [{
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',
@@ -48,8 +59,8 @@
                             searchable: false
                         },
                         {
-                            data: 'way',
-                            name: 'way'
+                            data: 'water_way.name',
+                            name: 'water_way.name',
                         },
                         {
                             data: 'value',
@@ -57,7 +68,10 @@
                         },
                         {
                             data: 'created_at',
-                            name: 'created_at'
+                            name: 'created_at',
+                            render: function(data, type, full, meta){
+                                return moment(data).format("DD-MM-YYYY HH:mm:ss")
+                            }
                         },
                     ]
                 });

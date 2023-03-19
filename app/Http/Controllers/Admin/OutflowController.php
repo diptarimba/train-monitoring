@@ -18,18 +18,22 @@ class OutflowController extends Controller
      */
     public function index(Request $request, Train $train, Wagon $wagon)
     {
-        if($request->ajax())
-        {
-            $outflow = $wagon->outflow()->with('water_way')->select();
-            return datatables()->of($outflow)
-            ->addIndexColumn()
-            ->addColumn('way', function($query){
-                return $query->water_way->name;
-            })
-            ->addColumn('created_at', function($query){
-                return Carbon::parse($query->created_at)->format("H:i:s d-m-Y");
-            })
-            ->make(true);
+        if ($request->ajax()) {
+            $outflow = $wagon
+                ->outflow()
+                ->with('water_way')
+                ->when($request->start_date && $request->end_date, function ($query) use ($request) {
+                    return $query->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date);
+                })
+                ->when($request['search']['value'], function($query) use ($request){
+                    return $query->whereHas('water_way', function($query) use ($request){
+                        return $query->where('name', 'like', "%{$request['search']['value']}%");
+                    });
+                });
+            return datatables()
+                ->of($outflow)
+                ->addIndexColumn()
+                ->make(true);
         }
 
         return view('pages.train.wagon.outflow.index', compact('train', 'wagon'));
