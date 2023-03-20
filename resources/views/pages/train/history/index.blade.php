@@ -14,7 +14,7 @@
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
-                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec">
+                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
                         <th>Name</th>
@@ -27,38 +27,37 @@
                 </table>
             </div>
         </x-slot>
-        </x-cards.single>
-    @endsection
+    </x-cards.fullpage>
+    <x-addon />
+@endsection
 
-    @section('footer-custom')
-        <script>
-            $(document).ready(() => {
-                var table = $('.datatables-target-exec').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    searching: true,
-                    ajax: "{{ route('train.water.index', $train->id) }}",
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex',
-                            sortable: false,
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'volume',
-                            name: 'volume'
-                        },
-                        {
-                            data: 'created_at',
-                            name: 'created_at'
-                        }
-                    ]
-                });
-            })
-        </script>
-    @endsection
+@section('footer-custom')
+    <script>
+        $(document).ready(() => {
+            var table = $('.datatables-target-exec').DataTable({
+                ...{
+                ajax: "{{ route('train.water.index', $train->id) }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        sortable: false,
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'volume',
+                        name: 'volume'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    }
+                ]
+            }, ...optionDatatables});
+        })
+    </script>
+@endsection

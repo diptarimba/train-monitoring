@@ -21,7 +21,7 @@
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
-                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec">
+                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
                         <th>Value</th>
@@ -33,44 +33,47 @@
                 </table>
             </div>
         </x-slot>
-        </x-cards.single>
-    @endsection
+    </x-cards.fullpage>
+    <x-addon needrange="true">
+        <x-slot name="titlepage">
+            Water Level History of {{ $wagon->name }} on {{ $train->name }}
+        </x-slot>
+    </x-addon>
+@endsection
 
-    @section('footer-custom')
-        <script>
-            $(document).ready(() => {
-                var table = $('.datatables-target-exec').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    searching: true,
-                    ajax: {
-                        url: "{{ route('train.wagon.water.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}",
-                        data: function(d) {
-                            // Query ke datatables
-                            d.start_date = searchParams.get('start_date') ?? null
-                            d.end_date = searchParams.get('end_date') ?? null
+@section('footer-custom')
+    <script>
+        $(document).ready(() => {
+            var table = $('.datatables-target-exec').DataTable({
+                ...{
+                ajax: {
+                    url: "{{ route('train.wagon.water.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}",
+                    data: function(d) {
+                        // Query ke datatables
+                        d.start_date = searchParams.get('start_date') ?? null
+                        d.end_date = searchParams.get('end_date') ?? null
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        sortable: false,
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'value',
+                        name: 'value'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                        render: function(data, type, full, meta) {
+                            return moment(data).format('DD-MM-YYYY HH:mm:ss');
                         }
                     },
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex',
-                            sortable: false,
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: 'value',
-                            name: 'value'
-                        },
-                        {
-                            data: 'created_at',
-                            name: 'created_at',
-                            render: function(data, type, full, meta) {
-                                return moment(data).format('DD-MM-YYYY HH:mm:ss');
-                            }
-                        },
-                    ]
-                });
-            })
-        </script>
-    @endsection
+                ]
+            }, ...optionDatatables});
+        })
+    </script>
+@endsection

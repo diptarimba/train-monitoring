@@ -21,7 +21,7 @@
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
-                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec">
+                <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
                         <th>Water Way</th>
@@ -34,19 +34,22 @@
                 </table>
             </div>
         </x-slot>
-        </x-cards.single>
-    @endsection
+    </x-cards.fullpage>
+    <x-addon needrange="true">
+        <x-slot name="titlepage">
+            Outflow History of {{ $wagon->name }} on {{ $train->name }}
+        </x-slot>
+    </x-addon>
+@endsection
 
-    @section('footer-custom')
-        <script>
-            $(document).ready(() => {
-                var table = $('.datatables-target-exec').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    searching: true,
+@section('footer-custom')
+    <script>
+        $(document).ready(() => {
+            var table = $('.datatables-target-exec').DataTable({
+                ...{
                     ajax: {
                         url: "{{ route('train.wagon.outflow.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}",
-                        data: function(d){
+                        data: function(d) {
                             d.start_date = searchParams.get('start_date') ?? null
                             d.end_date = searchParams.get('end_date') ?? null
                         }
@@ -69,12 +72,14 @@
                         {
                             data: 'created_at',
                             name: 'created_at',
-                            render: function(data, type, full, meta){
+                            render: function(data, type, full, meta) {
                                 return moment(data).format("DD-MM-YYYY HH:mm:ss")
                             }
                         },
                     ]
-                });
-            })
-        </script>
-    @endsection
+                },
+                ...optionDatatables
+            });
+        })
+    </script>
+@endsection

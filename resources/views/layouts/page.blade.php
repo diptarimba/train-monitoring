@@ -14,9 +14,17 @@
     <link type="text/css" href="{{ asset('css/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
 
     <!-- DatePicker BS5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet">
 
+    <style>
+        @media screen and (max-width: 767px) {
+            .dt-buttons {
+                margin-bottom: 0.5rem !important;
+                text-align: center !important;
+            }
+        }
+    </style>
 
     @yield('header-custom')
 @endsection
@@ -71,7 +79,7 @@
 
 @section('footer')
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Core -->
@@ -98,7 +106,7 @@
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
 
     <!-- Datepicker -->
-    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.min.js"></script>
+    <script src="{{ asset('assets/js/daterangepicker.min.js') }}"></script>
 
     <!-- Notyf -->
     <script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
@@ -117,8 +125,14 @@
     <script src="{{ asset('assets/js/fontawesome.regular.min.js') }}"></script>
 
     <!-- Datatables -->
-    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/datatables/buttons.print.min.js') }}"></script>
 
     <script>
         function delete_data(identify) {
@@ -142,32 +156,6 @@
             })
         }
     </script>
-    <script>
-        // mengambil URL saat ini
-        let currentUrl = window.location.search;
-
-        // membuat objek URLSearchParams dari URL saat ini
-        let searchParams = new URLSearchParams(currentUrl);
-
-        $(function() {
-            $('input[name="daterange"]').daterangepicker({
-                    opens: 'left', // position of calendar popup
-                    startDate: searchParams.get('start_date') ?? moment().startOf(
-                    'month'), // initial start date
-                    endDate: searchParams.get('end_date') ?? moment().endOf('month'), // initial end date
-                    locale: {
-                        format: 'YYYY-MM-DD' // date format
-                    }
-                },
-                function(start, end, label) {
-                    // menambahkan query string baru pada objek URLSearchParams
-                    searchParams.set('start_date', start.format('YYYY-MM-DD'));
-                    searchParams.set('end_date', end.format('YYYY-MM-DD'));
-
-                    // melakukan redirect ke URL yang baru
-                    window.location.search = searchParams.toString();
-                });
-        });
-    </script>
+    @stack('footer-carrier')
     @yield('footer-custom')
 @endsection
