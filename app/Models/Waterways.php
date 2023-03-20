@@ -19,11 +19,6 @@ class Waterways extends Model
         return $this->belongsTo(Wagon::class, 'wagon_id');
     }
 
-    public function water_history()
-    {
-        return $this->hasMany(WaterHistory::class);
-    }
-
     public function outflow()
     {
         return $this->hasMany(Outflow::class);

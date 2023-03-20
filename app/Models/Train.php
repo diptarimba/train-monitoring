@@ -11,7 +11,6 @@ class Train extends Model
 
     protected $fillable = [
         'name',
-        'volume'
     ];
 
     public function wagon()

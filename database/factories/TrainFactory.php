@@ -17,8 +17,7 @@ class TrainFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->words(3, true),
-            'volume' => 100
+            'name' => fake()->words(3, true)
         ];
     }
 }

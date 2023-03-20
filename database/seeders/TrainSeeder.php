@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Complaint;
 use App\Models\Train;
 use App\Models\Wagon;
-use App\Models\WaterHistory;
 use App\Models\Waterways;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
@@ -37,16 +36,6 @@ class TrainSeeder extends Seeder
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
-
-                    for($y=0; $y<rand(1,5); $y++){
-                        $volume = rand(1,7) / 10;
-                        $train->decrement('volume', $volume);
-
-                        WaterHistory::create([
-                            'water_way_id' => $waterWays->id,
-                            'volume' => rand(1,9) / 10
-                        ]);
-                    }
                 }
             });
 
@@ -71,16 +60,6 @@ class TrainSeeder extends Seeder
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
-
-                    for($y=0; $y<rand(1,5); $y++){
-                        $volume = rand(1,7) / 10;
-                        $train->decrement('volume', $volume);
-
-                        WaterHistory::create([
-                            'water_way_id' => $waterWays->id,
-                            'volume' => $volume
-                        ]);
-                    }
                 }
             });
 
@@ -106,16 +85,6 @@ class TrainSeeder extends Seeder
                         'name' => 'Toilet ' . $x,
                         'wagon_id' => $each->id
                     ]);
-
-                    for($y=0; $y<rand(1,5); $y++){
-                        $volume = rand(1,7) / 10;
-                        $train->decrement('volume', $volume);
-
-                        WaterHistory::create([
-                            'water_way_id' => $waterWays->id,
-                            'volume' => $volume
-                        ]);
-                    }
                 }
             });
 

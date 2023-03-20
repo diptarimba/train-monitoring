@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(TrainSeeder::class);
+        $this->call(OutflowSeeder::class);
+        $this->call(WaterLevelSeeder::class);
 
         // $this->call(CheckinSeeder::class);
     }

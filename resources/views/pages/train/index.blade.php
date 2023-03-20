@@ -19,8 +19,6 @@
                     <thead>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Current Water Level (L)</th>
-                        <th>Water Usage (L)</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -49,14 +47,6 @@
                     {
                         data: 'name',
                         name: 'name'
-                    },
-                    {
-                        data: 'volume',
-                        name: 'volume'
-                    },
-                    {
-                        data: 'usage',
-                        name: 'usage'
                     },
                     {
                         data: 'action',

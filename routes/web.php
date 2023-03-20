@@ -6,14 +6,11 @@ use App\Http\Controllers\Admin\OutflowController;
 use App\Http\Controllers\Admin\TrainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WagonController;
-use App\Http\Controllers\Admin\WaterHistoryController;
 use App\Http\Controllers\Admin\WaterLevelController;
 use App\Http\Controllers\Admin\WaterWayController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Complaint;
-use App\Models\WaterHistory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +40,6 @@ Route::group(['middleware' => ['auth:web']], function(){
     Route::resource('train.wagon.ways', WaterWayController::class);
     Route::resource('train.wagon.outflow', OutflowController::class);
     Route::resource('train.wagon.water', WaterLevelController::class);
-    Route::resource('train.water', WaterHistoryController::class);
     Route::resource('complaint', ComplaintController::class);
 
     Route::get('/auth/logout', [LoginController::class, 'logout'])->name('logout.index');
