@@ -16,14 +16,15 @@ class OutflowSeeder extends Seeder
      */
     public function run()
     {
-        $wagon = Wagon::get()->map(function($query){
+        $rawNow = Carbon::now();
+        $wagon = Wagon::get()->map(function($query) use ($rawNow){
             $way = $query->water_way->pluck('id')->toArray();
             for($x = 0; $x < 50; $x++)
             {
                 $randWayNumb = array_rand($way, 1);
                 $randWay = $way[$randWayNumb];
 
-                $now = Carbon::now();
+                $now = $rawNow->addSeconds(1);
                 $randBinary = rand(0,1);
                 $bool = $randBinary === 1 ? true : false;
                 $newDate = $bool ? $now->addDays(rand(1,14)) : $now->subDays(rand(1,14));

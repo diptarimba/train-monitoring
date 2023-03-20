@@ -16,9 +16,10 @@ class WaterLevelSeeder extends Seeder
      */
     public function run()
     {
-        $wagon = Wagon::get()->map(function($query){
+        $rawNow = Carbon::now();
+        $wagon = Wagon::get()->map(function($query) use ($rawNow){
             for($x=0; $x<50; $x++){
-                $now = Carbon::now();
+                $now = $rawNow->addSeconds(1);
                 $bool = rand(0,1) === 1 ? true : false;
                 $newDate = $bool ? $now->addDays(rand(1,14)) : $now->subDays(rand(1,14));
                 $query->water_level()->create(['value' => (mt_rand() / mt_getrandmax()), 'created_at' => $newDate, 'updated_at' => $newDate]);
