@@ -10,6 +10,10 @@
     <!-- Volt CSS -->
     <link type="text/css" href="{{ asset('css/volt.css') }}" rel="stylesheet">
 
+    <!-- Chartist -->
+    {{-- <link type="text/css" href="{{asset('vendor/chartist/dist/chartist.min.css')}}" rel="stylesheet"> --}}
+    {{-- <link type="text/css" href="{{asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet"> --}}
+
     <!-- Datatables Bootstrap5 CSS -->
     <link type="text/css" href="{{ asset('css/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
 
@@ -96,8 +100,11 @@
     <script src="{{ asset('vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
 
     <!-- Charts -->
-    <script src="{{ asset('vendor/chartist/dist/chartist.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/chartist/dist/chartist.min.js') }}"></script>
     <script src="{{ asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-zoom.min.js') }}"></script> --}}
+
+    <script src="{{asset('vendor/chartjs/chart.min.js')}}"></script>
 
     <!-- Sweet Alerts 2 -->
     <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
@@ -134,6 +141,10 @@
     <script src="{{ asset('assets/js/datatables/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('assets/js/datatables/buttons.print.min.js') }}"></script>
 
+    {{-- Chartjs Export --}}
+    <script src="{{asset('assets/js/jspdf.umd.min.js')}}"></script>
+    <script src="{{asset('assets/js/html2canvas.min.js')}}"></script>
+
     <script>
         function delete_data(identify) {
             Swal.fire({
@@ -154,6 +165,30 @@
                     $(`#${identify}`).submit();
                 }
             })
+        }
+    </script>
+    {{-- Colour --}}
+    <script>
+        var color = [
+            [54, 162, 235],
+            [255, 99, 132],
+            [75, 192, 192],
+            [153, 102, 255],
+            [255, 206, 86]
+        ];
+
+        var selectedData = [];
+
+        function getRandColor() {
+            if (selectedData.length === color.length) {
+                return null;
+            }
+            var randomIndex = Math.floor(Math.random() * color.length);
+            while (selectedData.includes(randomIndex)) {
+                randomIndex = Math.floor(Math.random() * color.length);
+            }
+            selectedData.push(randomIndex);
+            return color[randomIndex];
         }
     </script>
     @stack('footer-carrier')

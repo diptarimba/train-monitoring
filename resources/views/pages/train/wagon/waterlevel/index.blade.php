@@ -43,6 +43,13 @@
 
 @section('footer-custom')
     <script>
+        optionDatatables.buttons.push({
+            text: '<i class="fa fa-line-chart"></i> Chart',
+            className: 'btn btn-outline-primary',
+            action: function (e, dt, button, config){
+                window.location = '{{route('train.wagon.water.chart', ['train' => $train->id, 'wagon' => $wagon->id])}}';
+            }
+        })
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{

@@ -32,6 +32,11 @@ Route::post('/auth/register', [RegisterController::class, 'store'])->name('regis
 
 Route::group(['middleware' => ['auth:web']], function(){
 
+    //without resource
+    Route::get('/train/{train}/wagon/{wagon}/outflow/chart', [OutflowController::class, 'chart'])->name('train.wagon.outflow.chart');
+    Route::get('/train/{train}/wagon/{wagon}/water/chart', [WaterLevelController::class, 'chart'])->name('train.wagon.water.chart');
+
+    //with resource
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/me', [ProfileController::class, 'edit'])->name('me.index');
     Route::resource('user', UserController::class);

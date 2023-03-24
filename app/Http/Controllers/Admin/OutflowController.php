@@ -8,6 +8,7 @@ use App\Models\Train;
 use App\Models\Wagon;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OutflowController extends Controller
 {
@@ -103,5 +104,35 @@ class OutflowController extends Controller
     public function destroy(Outflow $outflow)
     {
         //
+    }
+
+    public function chart(Request $request, Train $train, Wagon $wagon)
+    {
+        $outflow = $wagon->outflow()->with('water_way')
+        ->select(DB::raw('date_format(created_at, "%Y-%m-%d %H:%i:00") as hour'), 'water_way_id', DB::raw('sum(value) as value'))
+        ->when($request->start_date && $request->end_date, function($query) use ($request){
+            return $query->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date);
+        })
+        ->groupBy('hour', 'water_way_id')
+        ->get(['outflows.*'])
+        ->sortBy('hour');
+
+        $hours = collect($outflow->sortBy('hour'))->pluck('hour');
+        $waterWayName = collect($outflow)->pluck('water_way.name')->unique();
+        $rawData = [];
+        $rawData['labels'] = $hours->map(function($each){
+            return $each;
+        })->toArray();
+
+
+        foreach($waterWayName as $eachWay){
+            foreach($hours as $hour){
+                $currentData = $outflow->where('water_way.name', $eachWay)->where('hour', $hour);
+                $rawData['value'][$eachWay][] = count($currentData) ? $currentData->first()->value : 0;
+            }
+        }
+
+        $data = json_encode($rawData);
+        return view('pages.train.wagon.outflow.chart', compact('data', 'train', 'wagon'));
     }
 }

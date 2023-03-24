@@ -21,6 +21,6 @@ class Waterways extends Model
 
     public function outflow()
     {
-        return $this->hasMany(Outflow::class);
+        return $this->hasMany(Outflow::class, 'water_way_id');
     }
 }
