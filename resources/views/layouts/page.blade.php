@@ -83,8 +83,7 @@
 
 @section('footer')
     <!-- JQuery -->
-    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" crossorigin="anonymous"></script>
 
     <!-- Core -->
     <script src="{{ asset('vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
@@ -104,7 +103,7 @@
     <script src="{{ asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <script src="{{ asset('vendor/chartist-plugin-tooltips/dist/chartist-plugin-zoom.min.js') }}"></script> --}}
 
-    <script src="{{asset('vendor/chartjs/chart.min.js')}}"></script>
+    <script src="{{ asset('vendor/chartjs/chart.min.js') }}"></script>
 
     <!-- Sweet Alerts 2 -->
     <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
@@ -142,8 +141,8 @@
     <script src="{{ asset('assets/js/datatables/buttons.print.min.js') }}"></script>
 
     {{-- Chartjs Export --}}
-    <script src="{{asset('assets/js/jspdf.umd.min.js')}}"></script>
-    <script src="{{asset('assets/js/html2canvas.min.js')}}"></script>
+    <script src="{{ asset('assets/js/jspdf.umd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/html2canvas.min.js') }}"></script>
 
     <script>
         function delete_data(identify) {
