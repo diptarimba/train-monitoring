@@ -8,6 +8,7 @@
 
 @section('content')
     <x-breadcrumbs category="Wagon" href="{{ route('train.wagon.index', $train->id) }}" current="index" />
+    <x-back route="{{ route('train.index') }}" />
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="Wagon of {{ $train->name }}" />
