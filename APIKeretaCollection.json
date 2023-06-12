@@ -1,12 +1,12 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2023-06-12T06:20:17.553Z",
+	"__export_date": "2023-06-12T07:16:50.480Z",
 	"__export_source": "insomnia.desktop.app:v2022.5.1",
 	"resources": [{
 		"_id": "req_2a2ee8c4e8d04bac96a51fc87c3ac1f2",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686550691081,
+		"modified": 1686554101536,
 		"created": 1686550629255,
 		"url": "http://localhost:8000/api/complaint-category",
 		"name": "Complaint Category",
@@ -43,7 +43,7 @@
 	}, {
 		"_id": "req_d446af3a5bbd4d5288383d9c82c725ba",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686550638497,
+		"modified": 1686554157161,
 		"created": 1677999172848,
 		"url": "http://localhost:8000/api/complaint",
 		"name": "Complaint",
@@ -51,7 +51,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"train_id\": 1,\n\t\"name\": \"Firman\",\n\t\"content\": \"ACnya kok tidak dingin ya\"\n}"
+			"text": "{\n\t\"train_id\": 1,\n\t\"category_id\": 1,\n\t\"name\": \"Firman\",\n\t\"content\": \"ACnya kok tidak dingin ya\"\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -71,7 +71,7 @@
 	}, {
 		"_id": "req_5805e21f8a7340fe8ebf115eee9db764",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686550582892,
+		"modified": 1686554083482,
 		"created": 1676814632126,
 		"url": "http://localhost:8000/api/outflow",
 		"name": "Outflow",
