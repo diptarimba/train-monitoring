@@ -25,7 +25,7 @@
                     <thead>
                         <th>No</th>
                         <th>Water Way</th>
-                        <th>Value</th>
+                        <th>Value (L)</th>
                         <th>Date</th>
                     </thead>
                     <tbody>
