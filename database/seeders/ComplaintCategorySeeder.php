@@ -16,7 +16,7 @@ class ComplaintCategorySeeder extends Seeder
      */
     public function run()
     {
-        ComplaintCategory::factory()->state(new Sequence(
+        ComplaintCategory::factory()->count(5)->state(new Sequence(
             ['name' => 'Toilet'],
             ['name' => 'AC'],
             ['name' => 'Tempat Duduk'],

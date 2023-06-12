@@ -29,7 +29,8 @@
             <x-sidebar.Single icons="fa-solid fa-house-user" title="Home" href="{{route('home.index')}}" currentsite="{{Request()->is('/') ? true : false}}"/>
             <x-sidebar.Single icons="fa-solid fa-train fa-fw" title="Train" href="{{route('train.index')}}" currentsite="{{Request()->is('train', 'train/*') ? true : false}}" />
             <x-sidebar.Single icons="fa-solid fa-user fa-fw" title="User" href="{{route('user.index')}}" currentsite="{{Request()->is('user', 'user/*') ? true : false}}" />
-            <x-sidebar.Single icons="fa-solid fa-file-import fa-fw" title="Complaint" href="{{route('complaint.index')}}" currentsite="{{Request()->is('complaint', 'complaint/*') ? true : false}}" />
+            <x-sidebar.Single icons="fa-solid fa-tag fa-fw" title="Complaint Category" href="{{route('complaint-category.index')}}" currentsite="{{Request()->is('complaint-category', 'complaint-category/*') ? true : false}}" />
+            <x-sidebar.Single icons="fa-solid fa-file-import fa-fw" title="Complaint List" href="{{route('complaint.index')}}" currentsite="{{Request()->is('complaint', 'complaint/*') ? true : false}}" />
         </ul>
     </div>
 </nav>

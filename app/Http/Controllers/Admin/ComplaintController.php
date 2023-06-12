@@ -17,7 +17,7 @@ class ComplaintController extends Controller
     {
         if($request->ajax())
         {
-            $complaint = Complaint::select();
+            $complaint = Complaint::with('category')->select();
             return datatables()->of($complaint)
             ->addIndexColumn()
             ->addColumn('action', function($query){

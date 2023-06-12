@@ -21,8 +21,8 @@ return new class extends Migration
             $table->longText('content');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('complaint_categories');
-            $table->foreign('train_id')->references('id')->on('trains');
+            $table->foreign('category_id')->references('id')->on('complaint_categories')->onDelete('cascade');
+            $table->foreign('train_id')->references('id')->on('trains')->onDelete('cascade');
         });
     }
 

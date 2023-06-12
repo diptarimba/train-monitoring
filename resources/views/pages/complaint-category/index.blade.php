@@ -1,25 +1,24 @@
 @extends('layouts.page')
 
-@section('tab-title', 'Train Complaint')
+@section('tab-title', 'Complaint Category')
 
 @section('header-custom')
 
 @endsection
 
 @section('content')
-    <x-breadcrumbs category="Train Complaint" href="{{ route('complaint.index') }}" current="index" />
+    <x-breadcrumbs category="Complaint Category" href="{{ route('complaint-category.index') }}" current="index" />
     <x-cards.fullpage>
         <x-slot name="header">
-            <x-cards.header title="Train" />
+            <x-cards.header title="Complaint Category" />
+            <a class="btn btn-primary" href="{{ route('complaint-category.create') }}">Tambah Data</a>
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
                 <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
-                        <th>Category</th>
                         <th>Name</th>
-                        <th>Content</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -37,7 +36,7 @@
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{
-                ajax: "{{ route('complaint.index') }}",
+                ajax: "{{ route('complaint-category.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -46,23 +45,8 @@
                         searchable: false
                     },
                     {
-                        data: 'category.name',
-                        name: 'category.name'
-                    },
-                    {
                         data: 'name',
                         name: 'name'
-                    },
-                    {
-                        data: 'content',
-                        name: 'content',
-                        render: function(data) {
-                            if (data) {
-                                return (data.length > 40) ? data.substring(0, 40) + '...' : data;
-                            } else {
-                                return '';
-                            }
-                        },
                     },
                     {
                         data: 'action',

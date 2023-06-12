@@ -39,7 +39,7 @@ class TrainSeeder extends Seeder
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id, 'category_id' => rand(1,5)]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
@@ -63,7 +63,7 @@ class TrainSeeder extends Seeder
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id, 'category_id' => rand(1,5)]))->create();
         });
 
         Train::factory()->count(1)->state(new Sequence(
@@ -88,7 +88,7 @@ class TrainSeeder extends Seeder
                 }
             });
 
-            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id]))->create();
+            Complaint::factory()->count(10)->state(new Sequence(['train_id' => $train->id, 'category_id' => rand(1,5)]))->create();
         });
     }
 }
