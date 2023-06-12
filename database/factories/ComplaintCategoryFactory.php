@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Complaint>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ComplaintFactory extends Factory
+class ComplaintCategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,7 @@ class ComplaintFactory extends Factory
     public function definition()
     {
         return [
-            'train_id' => 1,
-            'category_id' => 1,
-            'name' => fake()->name(),
-            'content' => fake()->words(10, true)
+            'name' => 'Toilet'
         ];
     }
 }

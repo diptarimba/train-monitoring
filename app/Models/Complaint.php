@@ -11,6 +11,7 @@ class Complaint extends Model
 
     protected $fillable = [
         'train_id',
+        'category_id',
         'name',
         'content'
     ];
@@ -18,5 +19,10 @@ class Complaint extends Model
     public function wagon()
     {
         return $this->belongsTo(Wagon::class, 'train_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(ComplaintCategory::class, 'category_id');
     }
 }
