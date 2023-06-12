@@ -4,18 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Train;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class TrainController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $train = Train::select();
-            return datatables()->of($train)
+            return datatables()
+                ->of($train)
                 ->addIndexColumn()
-                ->addColumn('action', function($query){
+                ->addColumn('action', function ($query) {
                     return $this->getActionColumn($query);
                 })
                 ->rawColumns(['action'])
@@ -32,12 +35,14 @@ class TrainController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         $train = Train::create($request->all());
 
-        return redirect()->route('train.index')->with('success', 'Train created successfully');
+        return redirect()
+            ->route('train.index')
+            ->with('success', 'Train created successfully');
     }
 
     public function edit(Train $train)
@@ -48,21 +53,27 @@ class TrainController extends Controller
     public function update(Request $request, Train $train)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         $train->update($request->all());
 
-        return redirect()->route('train.index')->with('success', 'Train updated successfully');
+        return redirect()
+            ->route('train.index')
+            ->with('success', 'Train updated successfully');
     }
 
     public function destroy(Train $train)
     {
         try {
             $train->delete();
-            return redirect()->route('train.index')->with('success', 'Train deleted successfully');
+            return redirect()
+                ->route('train.index')
+                ->with('success', 'Train deleted successfully');
         } catch (\Throwable $th) {
-            return redirect()->route('train.index')->with('error', 'Train failed deleted');
+            return redirect()
+                ->route('train.index')
+                ->with('error', 'Train failed deleted');
         }
     }
 
@@ -73,15 +84,25 @@ class TrainController extends Controller
         $wagonUrl = route('train.wagon.index', $data->id);
         $ident = Str::random(10);
 
-        return
-        '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
-        . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
-        . '<a class="btn btn-info btn-sm mx-1 my-1" href="'.$wagonUrl.'">Wagon List</a>'
-        // . '<input form="form'.$ident .'" type="submit" value="Delete" class="mx-1 my-1 btn btn-sm btn-danger delete-btn">
-        .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
-        <input type="hidden" name="_token" value="'.csrf_token().'" />
+        $buttonAction = '';
+        if (Auth::user()->status == User::$ADMIN) {
+            $buttonAction .= '<a href="' . $editBtn . '" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>' . '<button type="button" onclick="delete_data(\'form' . $ident . '\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>';
+        }
+        $buttonAction .= '<a class="btn btn-info btn-sm mx-1 my-1" href="' . $wagonUrl . '">Wagon List</a>';
+        if (Auth::user()->status == User::$ADMIN) {
+            $buttonAction .=
+                '<form id="form' .
+                $ident .
+                '" action="' .
+                $deleteBtn .
+                '" method="post">
+        <input type="hidden" name="_token" value="' .
+                csrf_token() .
+                '" />
         <input type="hidden" name="_method" value="DELETE">
         </form>';
-    }
+        }
 
+        return $buttonAction;
+    }
 }

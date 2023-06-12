@@ -29,6 +29,7 @@
                 <x-forms.input required="" label="Username" name="username" :value="@$user->username" />
                 <x-forms.input required="" label="Email" name="email" :value="@$user->email" />
                 <x-forms.text password type="password" label="Password" name="password" :value="@$user->pass" />
+                <x-forms.input type="hidden" label="" name="status" :value="$user->status ?? request()->query('status')" />
             </form>
             <button form="form" class="btn btn-outline-primary btn-pill">Submit</button>
         </x-slot>

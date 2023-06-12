@@ -13,8 +13,10 @@
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="{{ $train->name }}'s Water Ways" />
+                @if (Auth::user()->status == \App\Models\User::$ADMIN)
             <a class="btn btn-primary"
                 href="{{ route('train.wagon.ways.create', ['train' => $train->id, 'wagon' => $wagon->id]) }}">Tambah Data</a>
+                @endif
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -23,7 +25,9 @@
                         <th>No</th>
                         <th>Wagon</th>
                         <th>Way</th>
+                        @if (Auth::user()->status == \App\Models\User::$ADMIN)
                         <th>Action</th>
+                        @endif
                     </thead>
                     <tbody>
 
@@ -56,12 +60,14 @@
                         data: 'name',
                         name: 'name'
                     },
+                    @if (Auth::user()->status == \App\Models\User::$ADMIN)
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     },
+                    @endif
                 ]
             }, ...optionDatatables});
         })

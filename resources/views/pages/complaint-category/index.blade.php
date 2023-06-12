@@ -11,7 +11,9 @@
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="Complaint Category" />
+            @if (Auth::user()->status == \App\Models\User::$ADMIN)
             <a class="btn btn-primary" href="{{ route('complaint-category.create') }}">Tambah Data</a>
+            @endif
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -19,7 +21,9 @@
                     <thead>
                         <th>No</th>
                         <th>Name</th>
+                        @if (Auth::user()->status == \App\Models\User::$ADMIN)
                         <th>Action</th>
+                        @endif
                     </thead>
                     <tbody>
 
@@ -48,12 +52,14 @@
                         data: 'name',
                         name: 'name'
                     },
+                    @if (Auth::user()->status == \App\Models\User::$ADMIN)
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     },
+                    @endif
                 ]
             }, ...optionDatatables});
         })

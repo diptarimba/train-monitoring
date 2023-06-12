@@ -13,7 +13,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()){
-            $user = User::where('id', '!=', Auth::user()->id)->select();
+            $user = User::where('id', '!=', Auth::user()->id)->when($request->status, function($query) use ($request){
+                $query->where('status', '=', $request->status);
+            })->select();
             return datatables()->of($user)
                 ->addIndexColumn()
                 ->addColumn('action', function($query){
@@ -37,6 +39,7 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'status' => 'required',
             'avatar' => 'required|mimes:png,jpg,jpeg|max:1024',
         ]);
 
@@ -47,7 +50,7 @@ class UserController extends Controller
             ]
         ));
 
-        return redirect()->route('user.index')->with('success', 'User Created Successfully');
+        return redirect()->route('user.index', ['status' => $request->status])->with('success', 'User Created Successfully');
     }
 
     public function edit(User $user)
@@ -70,7 +73,7 @@ class UserController extends Controller
             'avatar' => $request->hasFile('avatar') ? '/storage/'. $request->file('avatar')->storePublicly('avatar') : $user->avatar
         ]));
 
-        return redirect()->route('user.index')->with('success', 'User Updated Successfully');
+        return redirect()->route('user.index', ['status' => $user->status])->with('success', 'User Updated Successfully');
     }
 
     public function destroy(User $user)

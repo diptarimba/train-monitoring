@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Train;
+use App\Models\User;
 use App\Models\Wagon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class WagonController extends Controller
@@ -78,15 +80,21 @@ class WagonController extends Controller
         $waterLevelBtn = route('train.wagon.water.index',['train' => $data->train_id, 'wagon' => $data->id]);
         $ident = Str::random(10);
 
-        return
-        '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
-        . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
-        . '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
+        $buttonAction = '';
+
+        if(Auth::user()->status == User::$ADMIN){
+            $buttonAction .= '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
+            . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>';
+        }
+
+        $buttonAction .= '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
         . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow</a>'
         . '<a href="'.$waterLevelBtn.'" class="btn mx-1 my-1 btn-sm btn-warning">Water Level</a>'
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />
         <input type="hidden" name="_method" value="DELETE">
         </form>';
+
+        return $buttonAction;
     }
 }

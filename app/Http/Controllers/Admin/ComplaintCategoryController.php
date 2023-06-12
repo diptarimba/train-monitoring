@@ -7,7 +7,7 @@ use App\Models\ComplaintCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class ComplainCategoryController extends Controller
+class ComplaintCategoryController extends Controller
 {
     public function index(Request $request)
     {

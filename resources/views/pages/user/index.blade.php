@@ -11,7 +11,7 @@
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="User" />
-            <a class="btn btn-primary" href="{{ route('user.create') }}">Tambah Data</a>
+            <a class="btn btn-primary" href="{{ route('user.create', ['status' => request()->query('status') ]) }}">Tambah Data</a>
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -33,13 +33,19 @@
 
 @section('footer-custom')
     <script>
+        var searchParams = new URLSearchParams(currentUrl);
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{
                 processing: true,
                 serverSide: true,
                 searching: true,
-                ajax: "{{ route('user.index') }}",
+                ajax: {
+                    url: "{{ route('user.index') }}",
+                    data: function(d){
+                        d.status = searchParams.get('status') ?? null
+                    }
+                },
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',

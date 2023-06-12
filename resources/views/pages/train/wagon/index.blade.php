@@ -12,7 +12,9 @@
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="Wagon of {{ $train->name }}" />
-            <a class="btn btn-primary" href="{{ route('train.wagon.create', $train->id) }}">Tambah Data</a>
+            @if (Auth::user()->status == \App\Models\User::$ADMIN)
+                <a class="btn btn-primary" href="{{ route('train.wagon.create', $train->id) }}">Tambah Data</a>
+            @endif
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -37,26 +39,28 @@
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{
-                ajax: "{{ route('train.wagon.index', $train->id) }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        sortable: false,
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            }, ...optionDatatables});
+                    ajax: "{{ route('train.wagon.index', $train->id) }}",
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex',
+                            sortable: false,
+                            orderable: false,
+                            searchable: false
+                        },
+                        {
+                            data: 'name',
+                            name: 'name'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ]
+                },
+                ...optionDatatables
+            });
         })
     </script>
 @endsection

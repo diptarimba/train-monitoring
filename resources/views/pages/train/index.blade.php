@@ -11,7 +11,9 @@
     <x-cards.fullpage>
         <x-slot name="header">
             <x-cards.header title="Train" />
-            <a class="btn btn-primary" href="{{ route('train.create') }}">Tambah Data</a>
+            @if (Auth::user()->status == \App\Models\User::$ADMIN)
+                <a class="btn btn-primary" href="{{ route('train.create') }}">Tambah Data</a>
+            @endif
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -19,6 +21,7 @@
                     <thead>
                         <th>No</th>
                         <th>Name</th>
+
                         <th>Action</th>
                     </thead>
                     <tbody>

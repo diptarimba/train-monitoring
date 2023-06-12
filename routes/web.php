@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ComplainCategoryController;
+use App\Http\Controllers\Admin\ComplaintCategoryController;
 use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OutflowController;
@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth:web']], function(){
     Route::get('/me', [ProfileController::class, 'edit'])->name('me.index');
     Route::resource('user', UserController::class);
     Route::resource('/train', TrainController::class);
-    Route::resource('/complaint-category', ComplainCategoryController::class);
+    Route::resource('/complaint-category', ComplaintCategoryController::class);
     Route::resource('train.wagon', WagonController::class);
     Route::resource('train.wagon.ways', WaterWayController::class);
     Route::resource('train.wagon.outflow', OutflowController::class);
