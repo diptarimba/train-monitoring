@@ -50,6 +50,7 @@ class ComplaintController extends Controller
     {
         $request->validate([
             'train_id' => 'required',
+            'category_id' => 'required',
             'name' => 'required',
             'content' => 'required'
         ]);
