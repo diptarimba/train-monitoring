@@ -1,4 +1,4 @@
-<div class="mb-2 col-xl-4 col-sm-4 col-12">
+<a href="{{$url ?? ''}}" class="mb-2 col-xl-4 col-sm-4 col-12">
     <div class="card card-outline card-primary mt-2 border-0">
         <div class="card-body">
             <div class="row d-block d-xl-flex align-items-center">
@@ -21,4 +21,4 @@
             </div>
         </div>
     </div>
-</div>
+</a>

@@ -9,10 +9,8 @@
 @section('content')
 <div class="row mt-3">
     <span class="slot-name h3"><strong>Insight Dashboard</strong></span>
-    <x-cards.home text="Train Total" value="{{$train}}" unit="Unit" icon="fa-solid fa-train" />
+    <x-cards.home text="Train Total" value="{{$train}}" url="{{route('train.index')}}" unit="Unit" icon="fa-solid fa-train" />
     <x-cards.home text="Wagon Total" value="{{$wagon}}" unit="Unit" icon="fa-solid fa-tram" />
-    <x-cards.home text="Current Water Total" value="{{$waterAvailable}}" unit="Liter" icon="fa-solid fa-water" />
-    <x-cards.home text="Usage Water Total" value="{{$waterUsage}}" unit="Liter" icon="fa-solid fa-water" />
 </div>
 @endsection
 
