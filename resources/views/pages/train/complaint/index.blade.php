@@ -17,6 +17,7 @@
                 <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
+                        <th>Date</th>
                         <th>Category</th>
                         <th>Wagon</th>
                         <th>Train</th>
@@ -39,49 +40,59 @@
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{
-                ajax: "{{ route('complaint.index') }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        sortable: false,
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'category.name',
-                        name: 'category.name'
-                    },
-                    {
-                        data: 'wagon.name',
-                        name: 'wagon.name'
-                    },
-                    {
-                        data: 'wagon.train.name',
-                        name: 'wagon.train.name'
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'content',
-                        name: 'content',
-                        render: function(data) {
-                            if (data) {
-                                return (data.length > 40) ? data.substring(0, 40) + '...' : data;
-                            } else {
-                                return '';
+                    ajax: "{{ route('complaint.index') }}",
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex',
+                            sortable: false,
+                            orderable: false,
+                            searchable: false
+                        },
+                        {
+                            data: 'created_at',
+                            name: 'created_at',
+                            render: function(data, type, row) {
+                                return moment(data).format('D MMMM YYYY HH:mm:ss');
                             }
                         },
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            }, ...optionDatatables});
+                        {
+                            data: 'category.name',
+                            name: 'category.name'
+                        },
+                        {
+                            data: 'wagon.name',
+                            name: 'wagon.name'
+                        },
+                        {
+                            data: 'wagon.train.name',
+                            name: 'wagon.train.name'
+                        },
+                        {
+                            data: 'name',
+                            name: 'name'
+                        },
+                        {
+                            data: 'content',
+                            name: 'content',
+                            render: function(data) {
+                                if (data) {
+                                    return (data.length > 40) ? data.substring(0, 40) + '...' :
+                                    data;
+                                } else {
+                                    return '';
+                                }
+                            },
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ]
+                },
+                ...optionDatatables
+            });
         })
     </script>
 @endsection
