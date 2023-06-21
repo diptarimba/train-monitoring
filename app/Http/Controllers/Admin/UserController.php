@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()){
-            $user = User::where('id', '!=', Auth::user()->id)->when($request->status, function($query) use ($request){
+            $user = User::when($request->status, function($query) use ($request){
                 $query->where('status', '=', $request->status);
             })->select();
             return datatables()->of($user)
@@ -89,16 +89,21 @@ class UserController extends Controller
     public function getActionColumn($data)
     {
         $editBtn = route('user.edit', $data->id);
-        $deleteBtn = route('user.destroy', $data->id);
-        $ident = Str::random(10);
+        $dataReturn = '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>';
 
-        return
-        '<a href="'.$editBtn.'" class="btn mx-1 my-1 btn-sm btn-success">Edit</a>'
-        . '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
-        .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
-        <input type="hidden" name="_token" value="'.csrf_token().'" />
-        <input type="hidden" name="_method" value="DELETE">
-        </form>';
+        if(Auth::user()->id !== $data->id){
+            $deleteBtn = route('user.destroy', $data->id);
+            $ident = Str::random(10);
+
+            $dataReturn .= '<button type="button" onclick="delete_data(\'form'.$ident .'\')"class="mx-1 my-1 btn btn-sm btn-danger">Delete</button>'
+            .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
+            <input type="hidden" name="_token" value="'.csrf_token().'" />
+            <input type="hidden" name="_method" value="DELETE">
+            </form>';
+        }
+
+        return $dataReturn;
+
     }
 }
 
