@@ -1,15 +1,68 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2023-06-12T07:16:50.480Z",
+	"__export_date": "2023-06-21T11:06:42.325Z",
 	"__export_source": "insomnia.desktop.app:v2022.5.1",
 	"resources": [{
+		"_id": "req_3ce6a59b0eda414ead032846c4eb2fd8",
+		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"modified": 1687345303429,
+		"created": 1687345285112,
+		"url": "http://localhost:8000/api/train",
+		"name": "Train List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1687345285112,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"parentId": null,
+		"modified": 1676814628980,
+		"created": 1676814628980,
+		"name": "Kereta",
+		"description": "",
+		"scope": "collection",
+		"_type": "workspace"
+	}, {
+		"_id": "req_a1f2f686479a4d56bdca0e1d1c5cb139",
+		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"modified": 1687345516321,
+		"created": 1687345494387,
+		"url": "http://localhost:8000/api/train/2/wagon",
+		"name": "Wagon List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1686947957183.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
 		"_id": "req_2a2ee8c4e8d04bac96a51fc87c3ac1f2",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686554101536,
+		"modified": 1687345295295,
 		"created": 1686550629255,
 		"url": "http://localhost:8000/api/complaint-category",
-		"name": "Complaint Category",
+		"name": "Complaint Category List",
 		"description": "",
 		"method": "GET",
 		"body": {
@@ -32,18 +85,9 @@
 		"settingFollowRedirects": "global",
 		"_type": "request"
 	}, {
-		"_id": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"parentId": null,
-		"modified": 1676814628980,
-		"created": 1676814628980,
-		"name": "Kereta",
-		"description": "",
-		"scope": "collection",
-		"_type": "workspace"
-	}, {
 		"_id": "req_d446af3a5bbd4d5288383d9c82c725ba",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686554157161,
+		"modified": 1687345535764,
 		"created": 1677999172848,
 		"url": "http://localhost:8000/api/complaint",
 		"name": "Complaint",
@@ -51,7 +95,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"train_id\": 1,\n\t\"category_id\": 1,\n\t\"name\": \"Firman\",\n\t\"content\": \"ACnya kok tidak dingin ya\"\n}"
+			"text": "{\n\t\"wagon_id\": 1,\n\t\"category_id\": 1,\n\t\"name\": \"Firman\",\n\t\"content\": \"ACnya kok tidak dingin ya\"\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -71,7 +115,7 @@
 	}, {
 		"_id": "req_5805e21f8a7340fe8ebf115eee9db764",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1686554083482,
+		"modified": 1687345068986,
 		"created": 1676814632126,
 		"url": "http://localhost:8000/api/outflow",
 		"name": "Outflow",

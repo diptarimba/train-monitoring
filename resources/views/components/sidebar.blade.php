@@ -42,9 +42,11 @@
                 currentsite="{{ request()->query('status') === 'USER' ? true : false }}" />
                 @endif
             <x-sidebar.sparator />
+            @if (Auth::user()->status == 'ADMIN')
             <x-sidebar.Single icons="fa-solid fa-tag fa-fw" title="Complaint Category"
                 href="{{ route('complaint-category.index') }}"
                 currentsite="{{ Request()->is('complaint-category', 'complaint-category/*') ? true : false }}" />
+                @endif
             <x-sidebar.Single icons="fa-solid fa-file-import fa-fw" title="Complaint List"
                 href="{{ route('complaint.index') }}"
                 currentsite="{{ Request()->is('complaint', 'complaint/*') ? true : false }}" />

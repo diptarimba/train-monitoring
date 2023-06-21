@@ -17,6 +17,10 @@
                         <h2 class="h6 text-gray-400 mb-0">{{$text}}</h2>
                         <h3 class="fw-extrabold mb-2 {{$adder ?? ''}}">{{number_format($value, 0, ",", ".")}} {{$unit}}</h3>
                     </div>
+                    <hr/>
+                    <h4>{{$descTitle ?? ''}}</h4>
+                    <p>{{$description ?? ''}}</p>
+                    <button class="btn btn-primary">View Details</button>
                 </div>
             </div>
         </div>

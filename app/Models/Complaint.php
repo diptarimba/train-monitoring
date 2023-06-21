@@ -10,7 +10,7 @@ class Complaint extends Model
     use HasFactory;
 
     protected $fillable = [
-        'train_id',
+        'wagon_id',
         'category_id',
         'name',
         'content'
@@ -18,7 +18,7 @@ class Complaint extends Model
 
     public function wagon()
     {
-        return $this->belongsTo(Wagon::class, 'train_id');
+        return $this->belongsTo(Wagon::class, 'wagon_id');
     }
 
     public function category()

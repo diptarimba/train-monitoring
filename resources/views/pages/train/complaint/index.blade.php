@@ -10,7 +10,7 @@
     <x-breadcrumbs category="Train Complaint" href="{{ route('complaint.index') }}" current="index" />
     <x-cards.fullpage>
         <x-slot name="header">
-            <x-cards.header title="Train" />
+            <x-cards.header title="Train Complaint" />
         </x-slot>
         <x-slot name="body">
             <div class="table-responsive">
@@ -18,6 +18,8 @@
                     <thead>
                         <th>No</th>
                         <th>Category</th>
+                        <th>Wagon</th>
+                        <th>Train</th>
                         <th>Name</th>
                         <th>Content</th>
                         <th>Action</th>
@@ -48,6 +50,14 @@
                     {
                         data: 'category.name',
                         name: 'category.name'
+                    },
+                    {
+                        data: 'wagon.name',
+                        name: 'wagon.name'
+                    },
+                    {
+                        data: 'wagon.train.name',
+                        name: 'wagon.train.name'
                     },
                     {
                         data: 'name',

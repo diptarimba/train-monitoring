@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Api\ComplaintCategoryController;
 use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\TrainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/outflow', [HistoryController::class, 'outflow']);
 Route::get('/complaint-category', [ComplaintCategoryController::class, 'index']);
+Route::get('/train', [TrainController::class, 'index']);
+Route::get('/train/{train}/wagon', [TrainController::class, 'wagon']);
 Route::post('/complaint', [ComplaintController::class, 'store']);

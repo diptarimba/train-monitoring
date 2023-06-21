@@ -12,7 +12,7 @@ class ComplaintCategoryController extends Controller
     {
         $complaintCategory = ComplaintCategory::select('id', 'name')->get();
         return response()->json([
-            'message' => 'Retrieve List Complaint Category',
+            'message' => 'Retrieve Complaint Category List',
             'data' => $complaintCategory
         ], 200);
     }

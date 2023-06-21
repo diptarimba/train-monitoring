@@ -17,7 +17,7 @@ class ComplaintFactory extends Factory
     public function definition()
     {
         return [
-            'train_id' => 1,
+            'wagon_id' => 1,
             'category_id' => 1,
             'name' => fake()->name(),
             'content' => fake()->words(10, true)

@@ -17,7 +17,7 @@ class ComplaintController extends Controller
     {
         if($request->ajax())
         {
-            $complaint = Complaint::with('category')->select();
+            $complaint = Complaint::with('category', 'wagon.train')->select();
             return datatables()->of($complaint)
             ->addIndexColumn()
             ->addColumn('action', function($query){
@@ -49,7 +49,7 @@ class ComplaintController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'train_id' => 'required',
+            'wagon_id' => 'required',
             'category_id' => 'required',
             'name' => 'required',
             'content' => 'required'
