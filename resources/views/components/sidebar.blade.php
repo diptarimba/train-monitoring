@@ -24,7 +24,7 @@
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
             {{ $slot }}
-            <x-sidebar.HeaderLogo title="{{ env('APP_NAME') }}" href="#"
+            <x-sidebar.HeaderLogo title="{{ config('app.name') }}" href="#"
                 src="{{ asset('assets/img/brand/light.svg') }}" />
             <x-sidebar.sparator />
             <x-sidebar.Single icons="fa-solid fa-house-user" title="Home" href="{{ route('home.index') }}"
