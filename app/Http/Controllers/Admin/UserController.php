@@ -73,7 +73,8 @@ class UserController extends Controller
             'avatar' => $request->hasFile('avatar') ? '/storage/'. $request->file('avatar')->storePublicly('avatar') : $user->avatar
         ]));
 
-        return redirect()->route('user.index', ['status' => $user->status])->with('success', 'User Updated Successfully');
+        // return redirect()->route('user.index', ['status' => $user->status])->with('success', 'User Updated Successfully');
+        return redirect()->back()->with('success', 'User Updated Successfully');
     }
 
     public function destroy(User $user)
