@@ -26,6 +26,7 @@
                         <th>No</th>
                         <th>Water Way</th>
                         <th>Value (L)</th>
+                        <th>Duration</th>
                         <th>Date</th>
                     </thead>
                     <tbody>
@@ -78,6 +79,19 @@
                             name: 'value'
                         },
                         {
+                            data: 'duration',
+                            name: 'duration',
+                            render: function(data, type, full, meta) {
+                                var openDate = moment(full.open_date);
+                                var closeDate = moment(full.close_date);
+                                var duration = moment.duration(closeDate.diff(openDate));
+                                var hours = Math.floor(duration.asHours());
+                                var minutes = Math.floor(duration.asMinutes()) - hours * 60;
+                                var seconds = Math.floor(duration.asSeconds()) - hours * 3600 -
+                                    minutes * 60;
+                                return hours + " jam " + minutes + " menit " + seconds + " detik";
+                            }
+                        },{
                             data: 'created_at',
                             name: 'created_at',
                             render: function(data, type, full, meta) {

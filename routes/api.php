@@ -22,7 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/outflow', [HistoryController::class, 'outflow']);
+Route::post('/water/outflow', [HistoryController::class, 'water_outflow']);
+Route::post('/water/level', [HistoryController::class, 'water_level']);
 Route::get('/complaint-category', [ComplaintCategoryController::class, 'index']);
 Route::get('/train', [TrainController::class, 'index']);
 Route::get('/train/{train}/wagon', [TrainController::class, 'wagon']);

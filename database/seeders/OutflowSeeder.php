@@ -29,11 +29,16 @@ class OutflowSeeder extends Seeder
                 $bool = $randBinary === 1 ? true : false;
                 $newDate = $bool ? $now->addDays(rand(1,14)) : $now->subDays(rand(1,14));
 
+                $open_date = $rawNow->copy()->subSeconds(rand(10,600));
+                $close_date = $open_date->copy()->addSeconds(rand(10,600));
+
                 $query->outflow()->create([
                     'value' => (mt_rand() / mt_getrandmax()),
                     'created_at' => $newDate,
                     'updated_at' => $newDate,
                     'water_way_id' => $randWay,
+                    'open_date' => $open_date->format('Y-m-d H:i:s'),
+                    'close_date' => $close_date->format('Y-m-d H:i:s')
                 ]);
             }
         });

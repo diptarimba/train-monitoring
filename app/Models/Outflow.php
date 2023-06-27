@@ -12,7 +12,9 @@ class Outflow extends Model
     protected $fillable = [
         'water_way_id',
         'wagon_id',
-        'value'
+        'value',
+        'open_date',
+        'close_date'
     ];
 
     public function water_way()

@@ -25,6 +25,7 @@ class WaterLevelController extends Controller
             ->when($request->start_date && $request->end_date, function($query) use ($request){
                 return $query->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date);
             })
+            ->orderBy('id', 'desc')
             ->select();
             return datatables()->of($waterLevel)
             ->addIndexColumn()
