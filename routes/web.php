@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\WagonController;
 use App\Http\Controllers\Admin\WaterLevelController;
 use App\Http\Controllers\Admin\WaterWayController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OptimizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,5 @@ Route::group(['middleware' => ['auth:web']], function(){
     Route::get('/auth/logout', [LoginController::class, 'logout'])->name('logout.index');
 });
 
+Route::get('/optimize-cache', [OptimizationController::class, 'optimizeCache']);
 
