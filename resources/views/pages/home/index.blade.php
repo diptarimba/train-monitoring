@@ -9,8 +9,8 @@
 @section('content')
 <div class="row mt-3">
     <span class="slot-name h3"><strong>Insight Dashboard</strong></span>
-    <x-cards.home text="Train Total" descTitle="Apa itu kereta?" description="Kereta adalah sarana transportasi rel yang efisien, ramah lingkungan, dan terus mengalami inovasi untuk menciptakan masa depan transportasi yang lebih baik." value="{{$train}}" url="{{route('train.index')}}" unit="Unit" icon="fa-solid fa-train" />
-    <x-cards.home text="Complaint Total" descTitle="Apa itu komplain?" description="Komplain pelanggan merupakan kesempatan bagi perusahaan untuk memperbaiki dan meningkatkan kualitas produk atau layanan mereka." value="{{$complaint}}" url="{{route('complaint.index')}}" unit="Unit" icon="fa-solid fa-file-import" />
+    <x-cards.home text="Train Total" descTitle="" description="Berisikan informasi kereta yang tersedia. Mulai dari jumlah gerbong kereta, monitoring penggunaan air dan monitoring tangki air." value="{{$train}}" url="{{route('train.index')}}" icon="fa-solid fa-train" />
+    <x-cards.home text="Complaint Total" descTitle="" description="Berisikan informasi mengenai keluhan dari penumpang kereta api untuk meningkatkan mutu dan kualitas layanan perusahaan." value="{{$complaint}}" url="{{route('complaint.index')}}" icon="fa-solid fa-file-import" />
 </div>
 @endsection
 

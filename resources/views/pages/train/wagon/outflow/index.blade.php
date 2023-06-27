@@ -27,7 +27,8 @@
                         <th>Water Way</th>
                         <th>Value (L)</th>
                         <th>Duration</th>
-                        <th>Date</th>
+                        <th>Outflow Date Time</th>
+                        <th>Data Input Date</th>
                     </thead>
                     <tbody>
 
@@ -91,6 +92,15 @@
                                     minutes * 60;
                                 return hours + " jam " + minutes + " menit " + seconds + " detik";
                             }
+                        },{
+                            data: 'outflow_date',
+                            name: 'outflow_date',
+                            render: function(data, type, full, meta) {
+                                var openDate = moment(full.open_date);
+                                var closeDate = moment(full.close_date);
+                                return full.open_date + " - " + full.close_date;
+                            }
+
                         },{
                             data: 'created_at',
                             name: 'created_at',

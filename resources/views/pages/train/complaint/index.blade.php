@@ -10,8 +10,14 @@
     <x-breadcrumbs category="Train Complaint" href="{{ route('complaint.index') }}" current="index" />
     <x-cards.fullpage>
         <x-slot name="header">
-            <x-cards.header title="Train Complaint" />
+            <div class="flex-grow-1">
+                <x-cards.header title="Train Complaint" />
+            </div>
+            <div class="flex-grow-2">
+                <input type="text" class="form-control" name="daterange" value="01/01/2023 - 01/31/2023" />
+            </div>
         </x-slot>
+
         <x-slot name="body">
             <div class="table-responsive">
                 <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
@@ -43,7 +49,13 @@
         $(document).ready(() => {
             var table = $('.datatables-target-exec').DataTable({
                 ...{
-                    ajax: "{{ route('complaint.index') }}",
+                    ajax: {
+                        url: "{{ route('complaint.index') }}",
+                        data: function(d) {
+                            d.start_date = searchParams.get('start_date') ?? null
+                            d.end_date = searchParams.get('end_date') ?? null
+                        }
+                    },
                     columns: [{
                             class: 'details-control',
                             data: 'DT_RowIndex',

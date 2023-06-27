@@ -17,7 +17,11 @@ class ComplaintController extends Controller
     {
         if($request->ajax())
         {
-            $complaint = Complaint::with('category', 'wagon.train')->select();
+            $complaint = Complaint::with('category', 'wagon.train')
+            ->when($request->start_date && $request->end_date, function ($query) use ($request) {
+                return $query->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date);
+            })
+            ->select();
             return datatables()->of($complaint)
             ->addIndexColumn()
             ->addColumn('action', function($query){
