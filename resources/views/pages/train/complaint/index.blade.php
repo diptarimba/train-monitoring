@@ -45,6 +45,7 @@
                 ...{
                     ajax: "{{ route('complaint.index') }}",
                     columns: [{
+                            class: 'details-control',
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',
                             sortable: false,
@@ -77,16 +78,14 @@
                         {
                             data: 'content',
                             name: 'content',
-                            render: function(data, type, row) {
-                                if (type === 'export') {
-                                    return row.actualContent;
-                                } else if (data) {
-                                    return (data.length > 40) ? data.substring(0, 40) + '...' :
-                                        data;
-                                } else {
-                                    return '';
-                                }
-                            },
+                            // render: function(data) {
+                            //     if (data) {
+                            //         return (data.length > 40) ? data.substring(0, 40) + '...' :
+                            //         data;
+                            //     } else {
+                            //         return '';
+                            //     }
+                            // },
                         },
                         {
                             data: 'action',
@@ -98,6 +97,7 @@
                 },
                 ...optionDatatables
             });
+
         })
     </script>
 @endsection
