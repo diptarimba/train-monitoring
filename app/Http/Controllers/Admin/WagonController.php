@@ -88,7 +88,7 @@ class WagonController extends Controller
         }
 
         $buttonAction .= '<a href="'.$waterWayBtn.'" class="btn mx-1 my-1 btn-sm btn-primary">Water Way</a>'
-        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Outflow</a>'
+        . '<a href="'.$outflowBtn.'" class="btn mx-1 my-1 btn-sm btn-info">Water Outflow</a>'
         . '<a href="'.$waterLevelBtn.'" class="btn mx-1 my-1 btn-sm btn-warning">Water Level</a>'
         .'<form id="form'.$ident .'" action="'.$deleteBtn.'" method="post">
         <input type="hidden" name="_token" value="'.csrf_token().'" />

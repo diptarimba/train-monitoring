@@ -18,6 +18,9 @@ class TrainController extends Controller
             return datatables()
                 ->of($train)
                 ->addIndexColumn()
+                ->addColumn('water_usage', function($query){
+                    return $query->water_usage;
+                })
                 ->addColumn('action', function ($query) {
                     return $this->getActionColumn($query);
                 })

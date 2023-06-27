@@ -26,13 +26,16 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
             </div>
         </x-slot>
     </x-cards.fullpage>
-    <x-addon />
+    <x-addon needrange="true">
+        <x-slot name="titlepage">
+            Train Complaint
+        </x-slot>
+    </x-addon>
 @endsection
 
 @section('footer-custom')
@@ -74,10 +77,12 @@
                         {
                             data: 'content',
                             name: 'content',
-                            render: function(data) {
-                                if (data) {
+                            render: function(data, type, row) {
+                                if (type === 'export') {
+                                    return row.actualContent;
+                                } else if (data) {
                                     return (data.length > 40) ? data.substring(0, 40) + '...' :
-                                    data;
+                                        data;
                                 } else {
                                     return '';
                                 }

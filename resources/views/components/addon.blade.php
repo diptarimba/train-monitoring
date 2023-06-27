@@ -37,7 +37,7 @@
                     },
                     {
                         extend: 'pdf',
-                        className: 'btn btn-outline-primary',
+                        className: 'btn btn-outline-primary buttons-pdf',
                         text: '<i class="fa fa-file-pdf"></i> PDF',
                         customize: function(doc) {
                             // Set the page margins

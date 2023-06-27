@@ -21,7 +21,7 @@
                     <thead>
                         <th>No</th>
                         <th>Name</th>
-
+                        <th>Usage Water (L)</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -50,6 +50,9 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },{
+                        data: 'water_usage',
+                        name: 'water_usage'
                     },
                     {
                         data: 'action',
