@@ -12,6 +12,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
+        $statusAccount = strtolower($request->status);
         if($request->ajax()){
             $user = User::when($request->status, function($query) use ($request){
                 $query->where('status', '=', $request->status);
@@ -24,7 +25,7 @@ class UserController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('pages.user.index');
+        return view('pages.user.index', compact('statusAccount'));
     }
 
     public function create()

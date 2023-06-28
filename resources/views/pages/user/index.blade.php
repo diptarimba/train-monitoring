@@ -1,16 +1,16 @@
 @extends('layouts.page')
 
-@section('tab-title', 'User')
+@section('tab-title', ucfirst($statusAccount))
 
 @section('header-custom')
 
 @endsection
 
 @section('content')
-    <x-breadcrumbs category="User" href="{{ route('user.index') }}" current="index" />
+    <x-breadcrumbs category="{{ucfirst($statusAccount)}}" href="{{ route('user.index') }}" current="index" />
     <x-cards.fullpage>
         <x-slot name="header">
-            <x-cards.header title="User" />
+            <x-cards.header title="{{ucfirst($statusAccount)}}" />
             <a class="btn btn-primary" href="{{ route('user.create', ['status' => request()->query('status') ]) }}">Tambah Data</a>
         </x-slot>
         <x-slot name="body">

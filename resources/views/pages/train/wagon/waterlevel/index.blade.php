@@ -25,6 +25,7 @@
                     <thead>
                         <th>No</th>
                         <th>Value</th>
+                        <th>Level (%)</th>
                         <th>Date</th>
                     </thead>
                     <tbody>
@@ -71,6 +72,15 @@
                     {
                         data: 'value',
                         name: 'value'
+                    },
+                    {
+                        data: 'percent',
+                        name: 'percent',
+                        render: function(data, type, full, meta) {
+                            var result = parseInt(full.value) / 250 * 100;
+                            var roundedResult = result.toFixed(2);
+                            return roundedResult;
+                        }
                     },
                     {
                         data: 'created_at',
