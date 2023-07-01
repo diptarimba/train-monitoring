@@ -1,12 +1,12 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2023-06-27T09:46:31.371Z",
+	"__export_date": "2023-07-01T08:49:07.852Z",
 	"__export_source": "insomnia.desktop.app:v2022.5.1",
 	"resources": [{
 		"_id": "req_3ce6a59b0eda414ead032846c4eb2fd8",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687351195825,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688200498973,
 		"created": 1687345285112,
 		"url": " https://smartoiletka.my.id/api/train",
 		"name": "Train List",
@@ -16,7 +16,7 @@
 		"parameters": [],
 		"headers": [],
 		"authentication": {},
-		"metaSortKey": -1687345285112,
+		"metaSortKey": -1687772885996.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -25,6 +25,17 @@
 		"settingRebuildPath": true,
 		"settingFollowRedirects": "global",
 		"_type": "request"
+	}, {
+		"_id": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"modified": 1688200486881,
+		"created": 1688200486881,
+		"name": "Localhost",
+		"description": "",
+		"environment": {},
+		"environmentPropertyOrder": null,
+		"metaSortKey": -1688200486881,
+		"_type": "request_group"
 	}, {
 		"_id": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
 		"parentId": null,
@@ -36,8 +47,8 @@
 		"_type": "workspace"
 	}, {
 		"_id": "req_a1f2f686479a4d56bdca0e1d1c5cb139",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687345516321,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688200501965,
 		"created": 1687345494387,
 		"url": "http://localhost:8000/api/train/2/wagon",
 		"name": "Wagon List",
@@ -47,7 +58,7 @@
 		"parameters": [],
 		"headers": [],
 		"authentication": {},
-		"metaSortKey": -1686947957183.5,
+		"metaSortKey": -1687772885946.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -58,8 +69,8 @@
 		"_type": "request"
 	}, {
 		"_id": "req_2a2ee8c4e8d04bac96a51fc87c3ac1f2",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687859177857,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688200503738,
 		"created": 1686550629255,
 		"url": "http://localhost:8000/api/complaint-category",
 		"name": "Complaint Category List",
@@ -75,7 +86,7 @@
 			"value": "application/json"
 		}],
 		"authentication": {},
-		"metaSortKey": -1686550629255,
+		"metaSortKey": -1687772885896.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -86,8 +97,8 @@
 		"_type": "request"
 	}, {
 		"_id": "req_d446af3a5bbd4d5288383d9c82c725ba",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687859173228,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688200505450,
 		"created": 1677999172848,
 		"url": " http://localhost:8000/api/complaint",
 		"name": "Complaint",
@@ -103,7 +114,7 @@
 			"value": "application/json"
 		}],
 		"authentication": {},
-		"metaSortKey": -1677999172849,
+		"metaSortKey": -1687772885846.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -114,8 +125,8 @@
 		"_type": "request"
 	}, {
 		"_id": "req_5805e21f8a7340fe8ebf115eee9db764",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687859174337,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688201311126,
 		"created": 1676814632126,
 		"url": " http://localhost:8000/api/water/outflow",
 		"name": "Water Outflow",
@@ -123,7 +134,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-D H:m:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-D H:m:ss' %}\"\n}"
+			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\"\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -131,7 +142,7 @@
 			"value": "application/json"
 		}],
 		"authentication": {},
-		"metaSortKey": -1676814632126,
+		"metaSortKey": -1687772885796.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -142,8 +153,8 @@
 		"_type": "request"
 	}, {
 		"_id": "req_2dd3b2c3923e4ec49a4d781298b533c6",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687859147639,
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688201316217,
 		"created": 1687857993638,
 		"url": " http://localhost:8000/api/water/level",
 		"name": "Water Level",
@@ -159,7 +170,174 @@
 			"value": "application/json"
 		}],
 		"authentication": {},
-		"metaSortKey": -1675324560128.5,
+		"metaSortKey": -1687772885746.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_4cc204e8e9654ea28c40a5186b1fe635",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688200620737,
+		"created": 1688200545670,
+		"url": "https://smartoiletka.my.id/api/train",
+		"name": "Train List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1687772885996.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"modified": 1688200545592,
+		"created": 1688200545592,
+		"name": "Web Production",
+		"description": "",
+		"environment": {},
+		"environmentPropertyOrder": null,
+		"metaSortKey": -1686773820828.5,
+		"_type": "request_group"
+	}, {
+		"_id": "req_bb01fe44b7bc44cc9f29e10fdde09a14",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688200614854,
+		"created": 1688200545677,
+		"url": "https://smartoiletka.my.id/api/train/2/wagon",
+		"name": "Wagon List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1687772885946.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_5a6aee19018a460ca8ac2e5fd36b3ee2",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688200609529,
+		"created": 1688200545662,
+		"url": "https://smartoiletka.my.id/api/complaint-category",
+		"name": "Complaint Category List",
+		"description": "",
+		"method": "GET",
+		"body": {
+			"mimeType": "application/json",
+			"text": ""
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885896.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_346f2817047f4da3b1a739e643e2cb1b",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688200674213,
+		"created": 1688200545641,
+		"url": "https://smartoiletka.my.id/api/complaint",
+		"name": "Complaint",
+		"description": "",
+		"method": "POST",
+		"body": {
+			"mimeType": "application/json",
+			"text": "{\n\t\"wagon_id\": 1,\n\t\"category_id\": 1,\n\t\"name\": \"Dipta Dipta Test\",\n\t\"content\": \"ACnya kok tidak dingin ya\"\n}"
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885846.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_08dd660df94d4145bef926c5f1669068",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688201330522,
+		"created": 1688200545623,
+		"url": "https://smartoiletka.my.id/api/water/outflow",
+		"name": "Water Outflow",
+		"description": "",
+		"method": "POST",
+		"body": {
+			"mimeType": "application/json",
+			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\"\n}"
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885796.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_000fa6135a31434e9c2b2acda598d625",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688200597257,
+		"created": 1688200545685,
+		"url": "https://smartoiletka.my.id/api/water/level",
+		"name": "Water Level",
+		"description": "",
+		"method": "POST",
+		"body": {
+			"mimeType": "application/json",
+			"text": "{\n\t\"wagon_id\": 1,\n\t\"value\" : 220\n}"
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885746.5,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -171,11 +349,11 @@
 	}, {
 		"_id": "env_dd070ae5c10520fc95be062a1d4de9825613fa07",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1676814629014,
+		"modified": 1688200552264,
 		"created": 1676814629014,
 		"name": "Base Environment",
 		"data": {},
-		"dataPropertyOrder": null,
+		"dataPropertyOrder": {},
 		"color": null,
 		"isPrivate": false,
 		"metaSortKey": 1676814629015,
@@ -183,7 +361,7 @@
 	}, {
 		"_id": "jar_dd070ae5c10520fc95be062a1d4de9825613fa07",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1687855290501,
+		"modified": 1688201052808,
 		"created": 1676814629021,
 		"name": "Default Jar",
 		"cookies": [{
@@ -197,7 +375,7 @@
 			"hostOnly": true,
 			"creation": "2023-06-27T08:38:23.183Z",
 			"lastAccessed": "2023-06-27T08:41:30.501Z",
-			"id": "7583266148966852"
+			"id": "7627400292728137"
 		}, {
 			"key": "kereta_api_session",
 			"value": "eyJpdiI6IlNMQVJ0RGVyWERCdjM4NU5EK2JYOUE9PSIsInZhbHVlIjoiVDNZa0dOWmh2UFJEM0thRVNLNzFYN2V6Y3ZJV3B2ZUFodEpHM1ZKV2dpTjk0NWRZYnZEcUhXSzhjWHlQTytlaEFVTEsvWDBiVDAvdUFDZG0vQnluYzBrVThlZE9JM2t2UU5RdG5XLzMzMng1cERkMzN5WXl6Y2VJYWcyMFIzT2siLCJtYWMiOiI3YWI3MDVjN2Q5ZjlkNjZhNWZkODRiMDMxNGY4NGY3YmMzNjJkZmUzOTljYTYxNzc2MTY0OTNjMDA4MmFjNmQ5IiwidGFnIjoiIn0%3D",
@@ -210,7 +388,34 @@
 			"hostOnly": true,
 			"creation": "2023-06-27T08:38:23.183Z",
 			"lastAccessed": "2023-06-27T08:41:30.501Z",
-			"id": "638333941472695"
+			"id": "28771283817148374"
+		}, {
+			"key": "XSRF-TOKEN",
+			"value": "eyJpdiI6IjZlb1lyWCtVbTZXOW1OUndhWDFFVkE9PSIsInZhbHVlIjoiaFBaamdYS1B1cGNGeEozSTQzTEY1dUpUeXpxU2tMQzF2MDBIdmRacUo1ZHh5ZlpEaUxmbFFYeFZHMVV5cDJMWFZnbkd1d0kwSzU0SG9SVThYVytuUUhKZGs1T294dEpxaDRVbXQzWm1ZYjZ3UFZCM0lUYU9Wa3p2TUpQV0xqZ0UiLCJtYWMiOiI2OTAwOWI0M2M1Nzk2MzE0NDliNDRkYTI0YmQ2ODM3Yjg2NTkwY2M1MWE5NzA2NDY1NzY4NzY3ZjUzYzBjNDA1IiwidGFnIjoiIn0%3D",
+			"expires": "2023-07-01T10:44:12.000Z",
+			"maxAge": 7200,
+			"domain": "smartoiletka.my.id",
+			"path": "/",
+			"secure": true,
+			"extensions": ["samesite=lax"],
+			"hostOnly": true,
+			"creation": "2023-07-01T08:36:20.376Z",
+			"lastAccessed": "2023-07-01T08:44:12.806Z",
+			"id": "4028122341179945"
+		}, {
+			"key": "smart_toilet_session",
+			"value": "eyJpdiI6IjdaNkFDS0czUUFmMWE0WVJIaS9yYlE9PSIsInZhbHVlIjoiZlYxdmNIRHF1bWJSMlZKUnpBbVVSZmEvMTNydjFDYVBML29MeEh5SzJZaFNUYXJyTmREbGlXYkhHUEdvVWVSWnFrd2tzcENoZll6aUFCWGJPV090YVowamIzcVIwaTdqeHpGZGdSNnIvU2FrbmhycEdRQklrWG5pSDVYUHhmYU8iLCJtYWMiOiIyMjllOThkMzU5MWI3MTYyY2MwMWFiYjM3MTJkMGE1ZjIzZWViMWM5NjUyZDczOTcxNzg2MTdmYzQ5ZWYyYTUwIiwidGFnIjoiIn0%3D",
+			"expires": "2023-07-01T10:44:12.000Z",
+			"maxAge": 7200,
+			"domain": "smartoiletka.my.id",
+			"path": "/",
+			"secure": true,
+			"httpOnly": true,
+			"extensions": ["samesite=lax"],
+			"hostOnly": true,
+			"creation": "2023-07-01T08:36:20.377Z",
+			"lastAccessed": "2023-07-01T08:44:12.807Z",
+			"id": "8252360811375399"
 		}],
 		"_type": "cookie_jar"
 	}, {

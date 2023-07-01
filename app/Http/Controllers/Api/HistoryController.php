@@ -13,33 +13,47 @@ class HistoryController extends Controller
 {
     public function water_outflow(Request $request)
     {
-        $request->validate([
-            'water_way_id' => 'required|exists:waterways,id',
-            'value' => 'required',
-            'open_date' => 'required|date_format:Y-m-d H:i:s',
-            'close_date' => 'required|date_format:Y-m-d H:i:s'
-        ]);
+        try {
+            $request->validate([
+                'water_way_id' => 'required|exists:waterways,id',
+                'value' => 'required',
+                'open_date' => 'required|date_format:Y-m-d H:i:s',
+                'close_date' => 'required|date_format:Y-m-d H:i:s'
+            ]);
 
-        $wagonId = Waterways::whereid($request->water_way_id)->first()->id;
+            $wagonId = Waterways::whereid($request->water_way_id)->first()->id;
 
-        $outflow = Outflow::create(array_merge(['wagon_id' => $wagonId],$request->all()));
+            $outflow = Outflow::create(array_merge(['wagon_id' => $wagonId],$request->all()));
 
-        return response()->json([
-            'message' => 'Outflow Received'
-        ], 200);
+            return response()->json([
+                'message' => 'Outflow Received'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th->getMessage()
+            ], 400);
+        }
+
     }
 
     public function water_level(Request $request)
     {
-        $request->validate([
-            'wagon_id' => 'required|exists:wagons,id',
-            'value' => 'required'
-        ]);
+        try {
+            $request->validate([
+                'wagon_id' => 'required|exists:wagons,id',
+                'value' => 'required'
+            ]);
 
-        $waterLevel = WaterLevel::create($request->all());
+            $waterLevel = WaterLevel::create($request->all());
 
-        return response()->json([
-            'message' => 'Water Level Received'
-        ], 200);
+            return response()->json([
+                'message' => 'Water Level Received'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th->getMessage()
+            ], 400);
+        }
+
     }
 }
