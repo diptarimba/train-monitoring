@@ -24,7 +24,7 @@
                 <table class="table table-centered table-nowrap mb-0 rounded datatables-target-exec" style="width: 100%">
                     <thead>
                         <th>No</th>
-                        <th>Value</th>
+                        <th>Value (L)</th>
                         <th>Level (%)</th>
                         <th>Date</th>
                     </thead>
