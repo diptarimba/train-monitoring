@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('wagon_id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
+            $table->string('status')->default('Belum Teratasi');
             $table->longText('content');
             $table->timestamps();
 

@@ -13,8 +13,11 @@ class Complaint extends Model
         'wagon_id',
         'category_id',
         'name',
+        'status',
         'content'
     ];
+
+    protected $hidden = ['updated_at', 'created_at'];
 
     public function wagon()
     {

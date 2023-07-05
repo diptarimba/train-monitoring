@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ComplaintController;
+use App\Http\Controllers\Api\ComplaintController;
 use App\Http\Controllers\Api\ComplaintCategoryController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\TrainController;
@@ -27,4 +27,6 @@ Route::post('/water/level', [HistoryController::class, 'water_level']);
 Route::get('/complaint-category', [ComplaintCategoryController::class, 'index']);
 Route::get('/train', [TrainController::class, 'index']);
 Route::get('/train/{train}/wagon', [TrainController::class, 'wagon']);
+Route::get('/complaint', [ComplaintController::class, 'index']);
 Route::post('/complaint', [ComplaintController::class, 'store']);
+Route::post('/complaint/{complaint}/status', [ComplaintController::class, 'updateStatus']);

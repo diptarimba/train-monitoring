@@ -25,6 +25,7 @@
                         <th>No</th>
                         <th>Date</th>
                         <th>Category</th>
+                        <th>Status</th>
                         <th>Wagon</th>
                         <th>Train</th>
                         <th>Name</th>
@@ -74,6 +75,10 @@
                         {
                             data: 'category.name',
                             name: 'category.name'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
                         },
                         {
                             data: 'wagon.name',
