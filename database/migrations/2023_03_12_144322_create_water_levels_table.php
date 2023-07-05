@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('water_levels', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('wagon_id');
-            $table->float('value', 8, 2);
+            $table->float('value', 8, 3);
             $table->timestamps();
 
             $table->foreign('wagon_id')->references('id')->on('wagons')->onDelete('cascade');
