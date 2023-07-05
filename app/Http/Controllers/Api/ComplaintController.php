@@ -16,7 +16,7 @@ class ComplaintController extends Controller
 
             return response()->json([
                 'message' => 'Retrieve List Complaint',
-                'data' => $complaints
+                'data' => $complaints->makeHidden(['created_at', 'updated_at'])
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([

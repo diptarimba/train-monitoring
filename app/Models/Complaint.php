@@ -17,8 +17,6 @@ class Complaint extends Model
         'content'
     ];
 
-    protected $hidden = ['updated_at', 'created_at'];
-
     public function wagon()
     {
         return $this->belongsTo(Wagon::class, 'wagon_id');
