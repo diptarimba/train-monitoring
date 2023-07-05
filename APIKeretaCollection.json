@@ -1,22 +1,22 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2023-07-01T08:49:07.852Z",
+	"__export_date": "2023-07-05T17:17:34.618Z",
 	"__export_source": "insomnia.desktop.app:v2022.5.1",
 	"resources": [{
-		"_id": "req_3ce6a59b0eda414ead032846c4eb2fd8",
+		"_id": "req_503860aff3ff4ce0b9ed546ce972632f",
 		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
-		"modified": 1688200498973,
-		"created": 1687345285112,
-		"url": " https://smartoiletka.my.id/api/train",
-		"name": "Train List",
+		"modified": 1688577288027,
+		"created": 1688577142772,
+		"url": "http://localhost:8000/api/complaint?page=2&perPage=10",
+		"name": "Complaint List",
 		"description": "",
 		"method": "GET",
 		"body": {},
 		"parameters": [],
 		"headers": [],
 		"authentication": {},
-		"metaSortKey": -1687772885996.5,
+		"metaSortKey": -1688577142772,
 		"isPrivate": false,
 		"settingStoreCookies": true,
 		"settingSendCookies": true,
@@ -45,6 +45,28 @@
 		"description": "",
 		"scope": "collection",
 		"_type": "workspace"
+	}, {
+		"_id": "req_3ce6a59b0eda414ead032846c4eb2fd8",
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688200498973,
+		"created": 1687345285112,
+		"url": " https://smartoiletka.my.id/api/train",
+		"name": "Train List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1687772885996.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
 	}, {
 		"_id": "req_a1f2f686479a4d56bdca0e1d1c5cb139",
 		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
@@ -126,7 +148,7 @@
 	}, {
 		"_id": "req_5805e21f8a7340fe8ebf115eee9db764",
 		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
-		"modified": 1688201311126,
+		"modified": 1688577122588,
 		"created": 1676814632126,
 		"url": " http://localhost:8000/api/water/outflow",
 		"name": "Water Outflow",
@@ -134,7 +156,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\"\n}"
+			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.12323,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:mm:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:mm:ss' %}\"\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -154,7 +176,7 @@
 	}, {
 		"_id": "req_2dd3b2c3923e4ec49a4d781298b533c6",
 		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
-		"modified": 1688201316217,
+		"modified": 1688561869515,
 		"created": 1687857993638,
 		"url": " http://localhost:8000/api/water/level",
 		"name": "Water Level",
@@ -162,7 +184,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"wagon_id\": 1,\n\t\"value\" : 220\n}"
+			"text": "{\n\t\"wagon_id\": 1,\n\t\"value\" : 0.238923\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -179,6 +201,77 @@
 		"settingRebuildPath": true,
 		"settingFollowRedirects": "global",
 		"_type": "request"
+	}, {
+		"_id": "req_6bcf2d221df44411aadb745584b38c49",
+		"parentId": "fld_fb631ef28c2e41849f294f5a7fdb295c",
+		"modified": 1688577353718,
+		"created": 1688577308634,
+		"url": "http://localhost:8000/api/complaint/1/status",
+		"name": "Update Status Complaint",
+		"description": "",
+		"method": "POST",
+		"body": {
+			"mimeType": "application/json",
+			"text": "{\n\t\"status\": \"Teratasi\"\n}"
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885696.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "req_33215874261c49608157522df4da3248",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688577429899,
+		"created": 1688577408804,
+		"url": "https://smartoiletka.my.id/api/complaint",
+		"name": "Complaint List",
+		"description": "",
+		"method": "GET",
+		"body": {},
+		"parameters": [{
+			"name": "page",
+			"value": "2",
+			"disabled": false,
+			"id": "pair_2d14e28e056343958bad77b934fabd0d"
+		}, {
+			"name": "perPage",
+			"value": "10",
+			"disabled": false,
+			"id": "pair_58098e55c0d340bb931b158f50ec1389"
+		}],
+		"headers": [],
+		"authentication": {},
+		"metaSortKey": -1688577408804,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
+		"_id": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
+		"modified": 1688200545592,
+		"created": 1688200545592,
+		"name": "Web Production",
+		"description": "",
+		"environment": {},
+		"environmentPropertyOrder": null,
+		"metaSortKey": -1686773820828.5,
+		"_type": "request_group"
 	}, {
 		"_id": "req_4cc204e8e9654ea28c40a5186b1fe635",
 		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
@@ -201,17 +294,6 @@
 		"settingRebuildPath": true,
 		"settingFollowRedirects": "global",
 		"_type": "request"
-	}, {
-		"_id": "fld_e27ae1f37095406f90d2f80a7413d10e",
-		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1688200545592,
-		"created": 1688200545592,
-		"name": "Web Production",
-		"description": "",
-		"environment": {},
-		"environmentPropertyOrder": null,
-		"metaSortKey": -1686773820828.5,
-		"_type": "request_group"
 	}, {
 		"_id": "req_bb01fe44b7bc44cc9f29e10fdde09a14",
 		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
@@ -293,7 +375,7 @@
 	}, {
 		"_id": "req_08dd660df94d4145bef926c5f1669068",
 		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
-		"modified": 1688201330522,
+		"modified": 1688577136088,
 		"created": 1688200545623,
 		"url": "https://smartoiletka.my.id/api/water/outflow",
 		"name": "Water Outflow",
@@ -301,7 +383,7 @@
 		"method": "POST",
 		"body": {
 			"mimeType": "application/json",
-			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:m:ss' %}\"\n}"
+			"text": "{\n\t\"water_way_id\": 1,\n\t\"value\" : 0.1239,\n\t\"open_date\": \"{% now 'custom', 'Y-MM-DD H:mm:ss' %}\",\n\t\"close_date\":  \"{% now 'custom', 'Y-MM-DD H:mm:ss' %}\"\n}"
 		},
 		"parameters": [],
 		"headers": [{
@@ -347,6 +429,34 @@
 		"settingFollowRedirects": "global",
 		"_type": "request"
 	}, {
+		"_id": "req_08469370574046b7a6a5745c93db36d0",
+		"parentId": "fld_e27ae1f37095406f90d2f80a7413d10e",
+		"modified": 1688577434795,
+		"created": 1688577387849,
+		"url": "https://smartoiletka.my.id/api/complaint/1/status",
+		"name": "Update Status Complaint",
+		"description": "",
+		"method": "POST",
+		"body": {
+			"mimeType": "application/json",
+			"text": "{\n\t\"status\": \"Teratasi\"\n}"
+		},
+		"parameters": [],
+		"headers": [{
+			"name": "Content-Type",
+			"value": "application/json"
+		}],
+		"authentication": {},
+		"metaSortKey": -1687772885696.5,
+		"isPrivate": false,
+		"settingStoreCookies": true,
+		"settingSendCookies": true,
+		"settingDisableRenderRequestBody": false,
+		"settingEncodeUrl": true,
+		"settingRebuildPath": true,
+		"settingFollowRedirects": "global",
+		"_type": "request"
+	}, {
 		"_id": "env_dd070ae5c10520fc95be062a1d4de9825613fa07",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
 		"modified": 1688200552264,
@@ -361,25 +471,25 @@
 	}, {
 		"_id": "jar_dd070ae5c10520fc95be062a1d4de9825613fa07",
 		"parentId": "wrk_b6f4921f28b548e9a613f89a1ab404d9",
-		"modified": 1688201052808,
+		"modified": 1688577258104,
 		"created": 1676814629021,
 		"name": "Default Jar",
 		"cookies": [{
 			"key": "XSRF-TOKEN",
-			"value": "eyJpdiI6IkROWGNZSmx1cGNtRzY5YlpnODFJK1E9PSIsInZhbHVlIjoiUk1XUXF4bHhVOEZRYmpCcWlCWGtoY3RIUldhOEFCVGxuZ2gxRXdvNjB2WnFnR1pUaGZwbU5PejFBMVc4MmNPY2dieTR5VnhlbzBCSWczOVR0NEQ2Ni82WlgzOUNualVtbnZTOXRqd3l4a0xUdGNGelNEM3hlN0huZ3YwaVBSYVkiLCJtYWMiOiI1NWJhNmY2Nzg4Y2VjMzcwZGYwYTE5MTY4NmI4YThiNGY4NzA2MGM1MGM5NTNjYmFmZTc5ZjRjNzlkYWQ3NjZlIiwidGFnIjoiIn0%3D",
-			"expires": "2023-06-27T10:41:30.000Z",
+			"value": "eyJpdiI6IkpZYUx0KzFTbDlFL0s1MWc5aUtZWGc9PSIsInZhbHVlIjoiWmF3endEWjIveFdRa29IOVNkejN4VXA0eHBJVjdKWnBtZjZKdFVXWmFSZlFRTEJvZmhUVjVKc0hnVHRtUG9vOHMwdldEK25HUEJjbnFtOFhqdWVLSjZVRHk2UHFIeXZWU2F1czlneUNPUW9FaXpvUlNLNVdkb3NhNlFqbWwwY3MiLCJtYWMiOiI5NTAxYzI0ZTAwNWY5N2QyNDc0ZDUzMjYwNTJhYzYzN2ZkM2E2N2U4ZWUxNjNiOTY0YmJkNGU4OWU5ZmZjM2EwIiwidGFnIjoiIn0%3D",
+			"expires": "2023-07-05T19:14:18.000Z",
 			"maxAge": 7200,
 			"domain": "localhost",
 			"path": "/",
 			"extensions": ["samesite=lax"],
 			"hostOnly": true,
 			"creation": "2023-06-27T08:38:23.183Z",
-			"lastAccessed": "2023-06-27T08:41:30.501Z",
-			"id": "7627400292728137"
+			"lastAccessed": "2023-07-05T17:14:18.104Z",
+			"id": "5416214480816139"
 		}, {
 			"key": "kereta_api_session",
-			"value": "eyJpdiI6IlNMQVJ0RGVyWERCdjM4NU5EK2JYOUE9PSIsInZhbHVlIjoiVDNZa0dOWmh2UFJEM0thRVNLNzFYN2V6Y3ZJV3B2ZUFodEpHM1ZKV2dpTjk0NWRZYnZEcUhXSzhjWHlQTytlaEFVTEsvWDBiVDAvdUFDZG0vQnluYzBrVThlZE9JM2t2UU5RdG5XLzMzMng1cERkMzN5WXl6Y2VJYWcyMFIzT2siLCJtYWMiOiI3YWI3MDVjN2Q5ZjlkNjZhNWZkODRiMDMxNGY4NGY3YmMzNjJkZmUzOTljYTYxNzc2MTY0OTNjMDA4MmFjNmQ5IiwidGFnIjoiIn0%3D",
-			"expires": "2023-06-27T10:41:30.000Z",
+			"value": "eyJpdiI6InAzd3plWnlZbXIwM3l6czY3K3kzNWc9PSIsInZhbHVlIjoiQnJJeXNyUFhWYUhuaFc4N0ttNDF1V3A3aWh3andDMWpWQ0swYlBxbUZtbU5MR1FtYnZjWUljNy9wc3NDRDVUYUQ5aUp6VzRIby85K0c1VEpPdDAzOWFkZ3ZRaU01bDV4TXJHU1hkTnpGVFFvRCs0WFhVQ0hPOVF4VjJZMDJWbGUiLCJtYWMiOiJkOGVhN2U0YTFhMzY1YjEwMDhjYjE0Y2RhYmVkNGIzYmUwNzgzZjQ4MzAzNmE2OTVhYmQyZDRkNjA4NTY2ODlkIiwidGFnIjoiIn0%3D",
+			"expires": "2023-07-05T19:14:18.000Z",
 			"maxAge": 7200,
 			"domain": "localhost",
 			"path": "/",
@@ -387,8 +497,8 @@
 			"extensions": ["samesite=lax"],
 			"hostOnly": true,
 			"creation": "2023-06-27T08:38:23.183Z",
-			"lastAccessed": "2023-06-27T08:41:30.501Z",
-			"id": "28771283817148374"
+			"lastAccessed": "2023-07-05T17:14:18.104Z",
+			"id": "4421893940478212"
 		}, {
 			"key": "XSRF-TOKEN",
 			"value": "eyJpdiI6IjZlb1lyWCtVbTZXOW1OUndhWDFFVkE9PSIsInZhbHVlIjoiaFBaamdYS1B1cGNGeEozSTQzTEY1dUpUeXpxU2tMQzF2MDBIdmRacUo1ZHh5ZlpEaUxmbFFYeFZHMVV5cDJMWFZnbkd1d0kwSzU0SG9SVThYVytuUUhKZGs1T294dEpxaDRVbXQzWm1ZYjZ3UFZCM0lUYU9Wa3p2TUpQV0xqZ0UiLCJtYWMiOiI2OTAwOWI0M2M1Nzk2MzE0NDliNDRkYTI0YmQ2ODM3Yjg2NTkwY2M1MWE5NzA2NDY1NzY4NzY3ZjUzYzBjNDA1IiwidGFnIjoiIn0%3D",
@@ -401,7 +511,7 @@
 			"hostOnly": true,
 			"creation": "2023-07-01T08:36:20.376Z",
 			"lastAccessed": "2023-07-01T08:44:12.806Z",
-			"id": "4028122341179945"
+			"id": "4135181392935581"
 		}, {
 			"key": "smart_toilet_session",
 			"value": "eyJpdiI6IjdaNkFDS0czUUFmMWE0WVJIaS9yYlE9PSIsInZhbHVlIjoiZlYxdmNIRHF1bWJSMlZKUnpBbVVSZmEvMTNydjFDYVBML29MeEh5SzJZaFNUYXJyTmREbGlXYkhHUEdvVWVSWnFrd2tzcENoZll6aUFCWGJPV090YVowamIzcVIwaTdqeHpGZGdSNnIvU2FrbmhycEdRQklrWG5pSDVYUHhmYU8iLCJtYWMiOiIyMjllOThkMzU5MWI3MTYyY2MwMWFiYjM3MTJkMGE1ZjIzZWViMWM5NjUyZDczOTcxNzg2MTdmYzQ5ZWYyYTUwIiwidGFnIjoiIn0%3D",
@@ -415,7 +525,7 @@
 			"hostOnly": true,
 			"creation": "2023-07-01T08:36:20.377Z",
 			"lastAccessed": "2023-07-01T08:44:12.807Z",
-			"id": "8252360811375399"
+			"id": "9948581337230882"
 		}],
 		"_type": "cookie_jar"
 	}, {

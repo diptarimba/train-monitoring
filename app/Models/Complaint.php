@@ -13,6 +13,7 @@ class Complaint extends Model
         'wagon_id',
         'category_id',
         'name',
+        'status',
         'content'
     ];
 
