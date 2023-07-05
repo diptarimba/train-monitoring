@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('water_way_id');
             $table->unsignedBigInteger('wagon_id');
-            $table->float('value', 8, 2);
+            $table->float('value', 8, 3);
             $table->timestamp('open_date')->nullable();
             $table->timestamp('close_date')->nullable();
             $table->timestamps();
