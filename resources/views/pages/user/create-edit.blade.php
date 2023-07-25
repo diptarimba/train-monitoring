@@ -8,7 +8,7 @@
 
 @section('content')
     <x-breadcrumbs category="User" href="{{ route('user.index') }}" current="index" />
-    <x-cards.single back="{{ route('user.index') }}">
+    <x-cards.single back="{{ Route::is('me.index') ? route('home.index') : route('user.index', ['status' => @$user->status])}}">
         <x-slot name="header">
             <x-cards.header title="{{ request()->routeIs('user.create') ? 'Create User' : 'Update User' }}" />
         </x-slot>
