@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Complaint;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ComplaintController extends Controller
@@ -16,7 +17,8 @@ class ComplaintController extends Controller
 
             return response()->json([
                 'message' => 'Retrieve List Complaint',
-                'data' => $complaints->makeHidden(['created_at', 'updated_at'])
+                'data' => $complaints
+                // 'data' => $complaints->makeHidden(['created_at', 'updated_at'])
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
@@ -37,14 +39,14 @@ class ComplaintController extends Controller
             $complaint = Complaint::create($request->all());
 
             return response()->json([
-                'message' => 'Complaint Received'
+                'message' => 'Complaint Received',
+                'data' => $complaint
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'message' => $th->getMessage()
             ], 400);
         }
-
     }
 
     public function updateStatus(Request $request, Complaint $complaint)
