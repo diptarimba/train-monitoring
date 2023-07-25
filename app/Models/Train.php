@@ -30,7 +30,7 @@ class Train extends Model
                 })->sum();
             })->sum();
 
-        return $waterUsage;
+        return number_format($waterUsage, 3);
 
     }
 }
