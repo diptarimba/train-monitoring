@@ -9,11 +9,15 @@ use Illuminate\Http\Request;
 
 class ComplaintController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         try {
             $perPage = request()->query('perPage', 10); // Mengambil jumlah item per halaman dari query parameter, defaultnya 10
-            $complaints = Complaint::paginate($perPage);
+            $complaints = Complaint::when($request->kereta_id !== null, function($query) use ($request){
+                return $query->whereHas('wagon', function($query) use ($request){
+                    return $query->where('train_id', $request->kereta_id);
+                });
+            })->paginate($perPage);
 
             return response()->json([
                 'message' => 'Retrieve List Complaint',
