@@ -82,7 +82,7 @@ class UserController extends Controller
     {
         try {
             $user->delete();
-            return redirect()->route('user.index')->with('success', 'User Created Successfully');
+            return redirect()->route('user.index')->with('success', 'User Deleted Successfully');
         } catch (\Throwable $th) {
             return redirect()->route('user.index')->with('error', 'User Failed Deleted');
         }
