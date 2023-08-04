@@ -81,10 +81,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try {
+            $userStatus = $user->status;
             $user->delete();
-            return redirect()->route('user.index')->with('success', 'User Created Successfully');
+            return redirect()->route('user.index', ['status' => $userStatus])->with('success', 'User Deleted Successfully');
         } catch (\Throwable $th) {
-            return redirect()->route('user.index')->with('error', 'User Failed Deleted');
+            return redirect()->route('user.index', ['status' => $userStatus])->with('error', 'User Failed Deleted');
         }
     }
 

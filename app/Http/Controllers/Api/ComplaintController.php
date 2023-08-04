@@ -17,7 +17,7 @@ class ComplaintController extends Controller
                 return $query->whereHas('wagon', function($query) use ($request){
                     return $query->where('train_id', $request->kereta_id);
                 });
-            })->paginate($perPage);
+            })->orderBy('id')->paginate($perPage);
 
             return response()->json([
                 'message' => 'Retrieve List Complaint',
