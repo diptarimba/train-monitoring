@@ -12,6 +12,9 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
+        if (is_null($request->input('status'))) {
+            return redirect()->route('user.index', ['status' => 'USER']);
+        }
         $statusAccount = strtolower($request->status);
         if($request->ajax()){
             $user = User::when($request->status, function($query) use ($request){
