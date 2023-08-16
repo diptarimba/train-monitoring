@@ -34,6 +34,9 @@ class OutflowController extends Controller
             return datatables()
                 ->of($outflow)
                 ->addIndexColumn()
+                ->addColumn('value', function($query){
+                    return number_format($query->value, 3, ".", ",");
+                    })
                 ->make(true);
         }
 
