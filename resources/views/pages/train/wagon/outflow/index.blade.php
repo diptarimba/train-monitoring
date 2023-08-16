@@ -1,19 +1,19 @@
 @extends('layouts.page')
 
-@section('tab-title', 'Outflow History')
+@section('tab-title', 'Water Outflow History')
 
 @section('header-custom')
 
 @endsection
 
 @section('content')
-    <x-breadcrumbs category="Outflow History"
+    <x-breadcrumbs category="Water Outflow History"
         href="{{ route('train.wagon.outflow.index', ['train' => $train->id, 'wagon' => $wagon->id]) }}" current="index" />
     <x-back route="{{ route('train.wagon.index', ['train' => $train->id]) }}" />
     <x-cards.fullpage>
         <x-slot name="header">
             <div class="flex-grow-1">
-                <x-cards.header title="Outflow History of {{ $wagon->name }} on {{ $train->name }}" />
+                <x-cards.header title="Water Outflow History of {{ $wagon->name }} on {{ $train->name }}" />
             </div>
             <div class="flex-grow-2">
                 <input type="text" class="form-control" name="daterange" value="01/01/2023 - 01/31/2023" />

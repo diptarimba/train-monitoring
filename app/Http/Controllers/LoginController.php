@@ -36,7 +36,7 @@ class LoginController extends Controller
 				->intended(route('home.index'))
 				->with('success','Sukses Login!');
         }else{
-            return back()->withErrors('username / password anda salah!');
+            return back()->withErrors('Username / Password Anda Salah!');
         }
     }
 
