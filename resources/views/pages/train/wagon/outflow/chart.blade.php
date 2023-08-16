@@ -1,6 +1,6 @@
 @extends('layouts.page')
 
-@section('tab-title', 'Water Outflow Chart')
+@section('tab-title', 'Waters Outflow Chart')
 
 @section('header-custom')
 
