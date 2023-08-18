@@ -118,7 +118,7 @@
 
         function exportChart() {
             var canvas = document.getElementById('myChart');
-            var title = 'Outflow Chart of {{ $wagon->name }} on {{ $train->name }}';
+            var title = 'Water Outflow Chart of {{ $wagon->name }} on {{ $train->name }}';
             var subtitle = 'Periode: ';
             var save = ''
             var systemFormatDate = "YYYY-MM-DD";

@@ -39,7 +39,7 @@
     </x-cards.fullpage>
     <x-addon needrange="true">
         <x-slot name="titlepage">
-            Outflow History of {{ $wagon->name }} on {{ $train->name }}
+            Water Outflow History of {{ $wagon->name }} on {{ $train->name }}
         </x-slot>
     </x-addon>
 @endsection
